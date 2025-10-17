@@ -4,100 +4,187 @@ import Image from 'next/image';
 import { 
   Github,
   Linkedin,
-  Mail
+  Mail,
+  Code2,
+  Heart,
+  Coffee,
+  MapPin,
+  Phone,
+  ExternalLink
 } from 'lucide-react';
-import Projects from '@/components/Projects';
-import About from '@/components/About';
-import Contact from '@/components/Contact';
-import TechStack from '@/components/TechStack';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Navigation - Bigger and More Distinct */}
-      <nav className="fixed top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b-2 border-gold shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-6">
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="text-3xl font-bold text-white">
-                <span className="text-gold">OZONE</span> CONSULTANCY
-              </div>
-            </div>
+            <a href="#home" className="text-2xl font-bold text-blue-600">
+              OZONE
+            </a>
             
-            <div className="flex items-center gap-10">
-              <a href="#home" className="text-white hover:text-gold transition-colors font-medium text-lg">
+            <div className="flex items-center gap-12">
+              <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 Home
               </a>
-              <a href="#about" className="text-white hover:text-gold transition-colors font-medium text-lg">
+              <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 About
               </a>
-              <a href="#projects" className="text-white hover:text-gold transition-colors font-medium text-lg">
-                Portfolio
+              <a href="#skills" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Skills
               </a>
-              <a href="#contact" className="bg-gold hover:bg-[#ff9d4d] text-black px-8 py-3 rounded-md font-bold text-lg transition-colors shadow-lg">
-                Get in touch
+              <a href="#projects" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Projects
+              </a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Contact
               </a>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section - Photo RIGHT in CIRCLE, Text LEFT */}
-      <section id="home" className="min-h-screen flex items-center pt-32 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 code-bg opacity-30"></div>
-        
-        <div className="max-w-7xl mx-auto w-full relative z-10">
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center pt-20 bg-gradient-to-br from-blue-50 to-gray-50">
+        <div className="max-w-7xl mx-auto px-8 py-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Text */}
+            {/* Left - Text Content */}
             <div>
-              <h1 className="text-6xl font-bold mb-6">
-                <span className="text-gold">Tyrese</span> Muigai,
+              <h1 className="text-6xl font-bold mb-4">
+                Hi, I&apos;m <span className="text-blue-600">Tyrese Muigai</span>
               </h1>
-              <p className="text-3xl text-gray-300 mb-8 font-semibold">Software Developer</p>
+              <p className="text-2xl text-gray-600 mb-6">Software Developer</p>
               
-              <p className="text-xl text-gray-400 mb-10 leading-relaxed">
-                I&apos;m a software developer with a passion for building innovative solutions, 
-                sharing knowledge through blogs, and exploring the ever-evolving tech landscape.
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                I&apos;m a passionate software developer based in Nairobi, Kenya. I love creating 
+                innovative solutions and bringing ideas to life through code. Let&apos;s build something 
+                amazing together!
               </p>
 
               {/* Social Links */}
-              <div className="flex gap-5">
+              <div className="flex gap-4 mb-8">
                 <a
-                  href="https://linkedin.com/in/tyrese-muigai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-14 h-14 bg-white/5 hover:bg-gold/20 rounded-lg flex items-center justify-center transition-colors border-2 border-white/10 hover:border-gold"
+                  href="mailto:tyrese@byteflow.co.ke"
+                  className="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors text-white"
                 >
-                  <Linkedin className="w-6 h-6" />
+                  <Mail className="w-5 h-5" />
                 </a>
                 <a
                   href="https://github.com/tyrese-muigai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-14 h-14 bg-white/5 hover:bg-gold/20 rounded-lg flex items-center justify-center transition-colors border-2 border-white/10 hover:border-gold"
+                  className="w-12 h-12 bg-gray-800 hover:bg-gray-900 rounded-full flex items-center justify-center transition-colors text-white"
                 >
-                  <Github className="w-6 h-6" />
+                  <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="mailto:tyrese@byteflow.co.ke"
-                  className="w-14 h-14 bg-white/5 hover:bg-gold/20 rounded-lg flex items-center justify-center transition-colors border-2 border-white/10 hover:border-gold"
+                  href="https://linkedin.com/in/tyrese-muigai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors text-white"
                 >
-                  <Mail className="w-6 h-6" />
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex gap-4">
+                <a
+                  href="#projects"
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                >
+                  View My Work
+                </a>
+                <a
+                  href="#contact"
+                  className="px-8 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
+                >
+                  Get In Touch
                 </a>
               </div>
             </div>
 
-            {/* Right - Circular Photo */}
+            {/* Right - Profile Photo with Orbiting Tech Icons */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-96 h-96 rounded-full overflow-hidden shadow-2xl border-4 border-gold">
-                <Image 
-                  src="/profile-photo.jpg" 
-                  alt="Tyrese Muigai"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                  unoptimized
-                />
+              <div className="relative w-96 h-96">
+                {/* Orbiting Tech Icons */}
+                <div className="absolute inset-0 animate-spin-slow">
+                  {/* React Icon */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8">
+                    <div className="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* TypeScript Icon */}
+                  <div className="absolute top-12 right-4">
+                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <span className="text-white font-bold text-lg">TS</span>
+                    </div>
+                  </div>
+
+                  {/* Node.js Icon */}
+                  <div className="absolute right-0 top-1/2 translate-x-8 -translate-y-1/2">
+                    <div className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.570,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Laravel Icon */}
+                  <div className="absolute bottom-12 right-4">
+                    <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <span className="text-white font-bold text-sm">PHP</span>
+                    </div>
+                  </div>
+
+                  {/* AWS Icon */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-8">
+                    <div className="w-14 h-14 bg-orange-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <span className="text-white font-bold text-xs">AWS</span>
+                    </div>
+                  </div>
+
+                  {/* Docker Icon */}
+                  <div className="absolute bottom-12 left-4">
+                    <div className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338 0-.676.03-.997.09-.297-2.2-1.746-3.358-1.818-3.414l-.338-.288-.186.387c-.23.47-.413.98-.534 1.512-.16.728-.096 1.446.19 2.114-.328.174-.632.316-.941.43-.576.211-1.221.322-1.897.322H.784l-.03.32a11.85 11.85 0 00.676 4.019c.6 1.618 1.686 2.804 3.23 3.52C6.347 19.19 8.52 19.5 10.66 19.5c8.195 0 14.01-4.97 14.01-11.982 0-.002 0-.003 0-.004 1.066-.14 1.668-.69 1.836-.963l.145-.293-.043-.03z"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* MongoDB Icon */}
+                  <div className="absolute left-0 top-1/2 -translate-x-8 -translate-y-1/2">
+                    <div className="w-14 h-14 bg-green-700 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <span className="text-white font-bold text-xs">DB</span>
+                    </div>
+                  </div>
+
+                  {/* JavaScript Icon */}
+                  <div className="absolute top-12 left-4">
+                    <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <span className="text-gray-900 font-bold text-lg">JS</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Profile Photo with Glow Effect */}
+                <div className="absolute inset-8 rounded-full overflow-hidden shadow-2xl border-4 border-white ring-4 ring-blue-400 ring-opacity-50 hover:ring-opacity-100 hover:ring-8 transition-all duration-300 group">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300"></div>
+                  <Image 
+                    src="/profile-photo.jpg" 
+                    alt="Tyrese Muigai"
+                    fill
+                    className="object-cover object-top group-hover:scale-110 transition-transform duration-300"
+                    priority
+                    unoptimized
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -105,35 +192,511 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <About />
+      <section id="about" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">About Me</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Get to know more about my journey and what drives my passion for software development.
+            </p>
+          </div>
 
-      {/* Tech Stack */}
-      <TechStack />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left - My Journey */}
+            <div>
+              <h3 className="text-3xl font-bold mb-6">My Journey</h3>
+              <div className="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  My journey into technology began with a deep curiosity about cybersecurity — 
+                  understanding how systems work, how they can be exploited, and more importantly, 
+                  how they can be protected. This foundation gave me a strong appreciation for 
+                  building secure and reliable software from the ground up.
+                </p>
+                <p>
+                  However, my perspective shifted when I developed my first functional system. I 
+                  realized that beyond securing systems, I had the ability to create them — to bring 
+                  ideas to life through code. From that point on, I dove fully into software 
+                  development, combining creativity with technical depth to build impactful digital 
+                  solutions.
+                </p>
+                <p>
+                  Over time, I&apos;ve worked on projects ranging from machine learning platforms to 
+                  business management systems, each strengthening my skills in full-stack development, 
+                  cloud deployment, and data handling. My approach remains rooted in cybersecurity 
+                  principles — ensuring that every product I build is both functional and secure.
+                </p>
+                <p>
+                  Beyond development, I co-founded <span className="font-semibold text-blue-600">Byte Flow</span> — 
+                  a growing software development company focused on delivering scalable web applications 
+                  and innovative digital products. Through Byte Flow, I collaborate with diverse teams 
+                  and clients to transform complex ideas into seamless, production-ready systems.
+                </p>
+                <p>
+                  Today, I continue to evolve as a developer — exploring modern frameworks, improving 
+                  user experiences, and applying secure coding practices to every project I undertake.
+                </p>
+              </div>
+            </div>
+
+            {/* Right - Cards Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-blue-50 p-6 rounded-xl">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                  <Code2 className="w-6 h-6 text-blue-600" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">Clean Code</h4>
+                <p className="text-gray-600 text-sm">
+                  I write maintainable, scalable, and well-documented code.
+                </p>
+              </div>
+
+              <div className="bg-blue-50 p-6 rounded-xl">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-lg mb-2">Problem Solver</h4>
+                <p className="text-gray-600 text-sm">
+                  I enjoy tackling complex challenges and finding innovative solutions.
+                </p>
+              </div>
+
+              <div className="bg-blue-50 p-6 rounded-xl">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                  <Heart className="w-6 h-6 text-blue-600" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">Team Player</h4>
+                <p className="text-gray-600 text-sm">
+                  I collaborate well with cross-functional teams and value communication.
+                </p>
+              </div>
+
+              <div className="bg-blue-50 p-6 rounded-xl">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                  <Coffee className="w-6 h-6 text-blue-600" />
+                </div>
+                <h4 className="font-bold text-lg mb-2">Continuous Learner</h4>
+                <p className="text-gray-600 text-sm">
+                  I stay updated with the latest technologies and best practices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">Skills & Technologies</h2>
+            <p className="text-xl text-gray-600">
+              Here are the technologies and skills I work with to create amazing experiences.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Frontend Development */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6">Frontend Development</h3>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">React</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">TypeScript</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">JavaScript</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">HTML5</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">CSS3</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Tailwind CSS</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Next.js</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Vue.js</span>
+              </div>
+            </div>
+
+            {/* Backend Development */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6">Backend Development</h3>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Node.js</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Python</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Express.js</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Django</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Laravel</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">PHP</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">RESTful APIs</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">GraphQL</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">MongoDB</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">PostgreSQL</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">MySQL</span>
+              </div>
+            </div>
+
+            {/* Cloud Infrastructure */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6">Cloud Infrastructure</h3>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">AWS</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Microsoft Azure</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Google Cloud Platform</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Docker</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Kubernetes</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">CI/CD</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Firebase</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Vercel</span>
+              </div>
+            </div>
+
+            {/* Tools & Technologies */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6">Tools & Technologies</h3>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Git</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">GitHub</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Figma</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">VS Code</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Postman</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Linux</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Nginx</span>
+              </div>
+            </div>
+
+            {/* Soft Skills */}
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold mb-6">Soft Skills</h3>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Problem Solving</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Team Collaboration</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Communication</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Project Management</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Agile</span>
+                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Mentoring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Projects Section */}
-      <Projects />
+      <section id="projects" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">Featured Projects</h2>
+            <p className="text-xl text-gray-600">
+              Here are some of the projects I&apos;ve worked on. Each project represents a unique 
+              challenge and learning experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Project 1 - GlycoSafe */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-64 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 relative">
+                <div className="absolute inset-0 flex items-center justify-center text-white">
+                  <div className="text-center p-6">
+                    <svg className="w-20 h-20 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                    <h4 className="font-bold text-xl">AI Research Platform</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3">GlycoSafe</h3>
+                <p className="text-gray-600 mb-4">
+                  An AI-driven platform designed to support glycomics research through data annotation, 
+                  model training, and visualization. Responsible for data sourcing, filtration, annotation, 
+                  and training computer vision models (YOLOv8) for classification and segmentation.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Python</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">FastAPI</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">YOLOv8</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Roboflow</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">PostgreSQL</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">React</span>
+                </div>
+                <div className="flex gap-3">
+                  <a
+                    href="https://glycosafe.jhubafrica.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Visit Site
+                  </a>
+                  <button
+                    disabled
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
+                  >
+                    Demo Coming Soon
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 - SokoFresh */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-64 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 relative">
+                <div className="absolute inset-0 flex items-center justify-center text-white">
+                  <div className="text-center p-6">
+                    <svg className="w-20 h-20 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    </svg>
+                    <h4 className="font-bold text-xl">Inventory Management</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3">SokoFresh Inventory System</h3>
+                <p className="text-gray-600 mb-4">
+                  A web-based inventory and asset tracking system designed for solar companies to manage 
+                  panels, batteries, and installations efficiently. Handled system design, frontend and 
+                  backend integration with REST APIs.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Next.js</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Node.js</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Express.js</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">MongoDB</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Tailwind CSS</span>
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    disabled
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
+                  >
+                    Demo Coming Soon
+                  </button>
+                  <button
+                    disabled
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
+                  >
+                    Screenshots Coming
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 - Liquor Store */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-64 bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 relative">
+                <div className="absolute inset-0 flex items-center justify-center text-white">
+                  <div className="text-center p-6">
+                    <svg className="w-20 h-20 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <h4 className="font-bold text-xl">E-Commerce System</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3">Liquor Store Management System</h3>
+                <p className="text-gray-600 mb-4">
+                  An e-commerce-style system tailored for liquor store operations — handling product 
+                  listings, order tracking, and user authentication with a beautifully designed UI. 
+                  Currently in testing phase before deployment.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">React</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Laravel</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">MySQL</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Tailwind CSS</span>
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    disabled
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
+                  >
+                    Demo Coming Soon
+                  </button>
+                  <button
+                    disabled
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
+                  >
+                    Testing Phase
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 - Arbitrage Bot */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="h-64 bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-600 relative">
+                <div className="absolute inset-0 flex items-center justify-center text-white">
+                  <div className="text-center p-6">
+                    <svg className="w-20 h-20 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <h4 className="font-bold text-xl">DeFi Trading Bot</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-3">Arbitrage Bot (DeFi/Web3)</h3>
+                <p className="text-gray-600 mb-4">
+                  An automated crypto arbitrage trading bot built to identify and exploit price 
+                  inefficiencies across decentralized exchanges. Focused on blockchain integration, 
+                  smart contract interaction, and algorithmic execution logic.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Python</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Web3.js</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Ethers.js</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Solidity</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Node.js</span>
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    disabled
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
+                  >
+                    Demo Coming Soon
+                  </button>
+                  <button
+                    disabled
+                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                    </svg>
+                    Private
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
-      <Contact />
+      <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-gray-50">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-6">Get In Touch</h2>
+            <p className="text-xl text-gray-600">
+              I&apos;m always open to discussing new opportunities and interesting projects. Let&apos;s 
+              connect and create something amazing together!
+            </p>
+          </div>
+
+          {/* Contact Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-white p-6 rounded-xl text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-lg mb-2">Email</h3>
+              <p className="text-gray-600">tyrese@byteflow.co.ke</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-lg mb-2">Phone</h3>
+              <p className="text-gray-600">+254 718 004 282</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-lg mb-2">Location</h3>
+              <p className="text-gray-600">Nairobi, Kenya</p>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter subject"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  rows={6}
+                  placeholder="Enter your message"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-gray-800 py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-sm text-gray-500 mb-4 md:mb-0">
-              © 2024 Ozone Consultancy. All rights reserved.
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div className="mb-4 md:mb-0">
+              <h3 className="text-2xl font-bold text-blue-400 mb-2">OZONE</h3>
+              <p className="text-gray-400">Tyrese Muigai • Software Developer • Nairobi, Kenya</p>
             </div>
-            <div className="flex space-x-6">
-              <a href="https://github.com/tyrese-muigai" className="text-gray-500 hover:text-gold transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="https://linkedin.com/in/tyrese-muigai" className="text-gray-500 hover:text-gold transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="mailto:tyrese@byteflow.co.ke" className="text-gray-500 hover:text-gold transition-colors">
+            <div className="flex gap-4">
+              <a
+                href="mailto:tyrese@byteflow.co.ke"
+                className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
+              >
                 <Mail className="w-5 h-5" />
               </a>
+              <a
+                href="https://github.com/tyrese-muigai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="https://linkedin.com/in/tyrese-muigai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
             </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+            © 2025 OZONE. All rights reserved.
           </div>
         </div>
       </footer>
