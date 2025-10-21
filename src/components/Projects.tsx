@@ -26,13 +26,30 @@ const projects = [
   },
   {
     id: 3,
-    title: 'SokoFresh Inventory System',
-    description: 'A comprehensive inventory management system built for cold storage operations with real-time tracking.',
-    fullDescription: 'Features include battery management, casual labor oversight, and advanced reporting capabilities.',
-    image: '/project-3.jpg',
-    technologies: ['Laravel', 'React', 'PostgreSQL', 'Redis'],
+    title: 'SokoFresh Cold Storage Management System',
+    description: 'Enterprise-grade inventory and operations management system for cold storage facilities, featuring real-time tracking, battery monitoring, and workforce management.',
+    fullDescription: 'A full-stack Progressive Web Application designed to streamline cold storage operations. The system manages inventory across multiple hubs, tracks maintenance visits, monitors battery health, and oversees casual labor attendance. Built with a focus on scalability and real-time data synchronization, it handles complex operations including crate movements between facilities, equipment maintenance schedules, and comprehensive reporting dashboards. The system supports role-based access control with admin, manager, and technician roles, ensuring secure and efficient operations management.',
+    image: '/sokofresh-dashboard.png',
+    technologies: ['Laravel 10', 'React', 'PostgreSQL', 'Redis', 'Inertia.js', 'TailwindCSS', 'Spatie Permissions'],
+    features: [
+      'Multi-hub inventory management with real-time stock tracking',
+      'Battery health monitoring and maintenance scheduling',
+      'Casual labor attendance and payroll tracking',
+      'Cold storage unit management with GPS coordinates',
+      'Crate movement tracking between facilities',
+      'Role-based access control (Admin, Manager, Technician)',
+      'Advanced reporting and analytics dashboards',
+      'Mobile-responsive Progressive Web App'
+    ],
     link: null,
-    category: 'Enterprise Software'
+    category: 'Enterprise Software',
+    demoVideo: '/sokofresh-demo.mp4',
+    screenshots: [
+      '/sokofresh-dashboard.png',
+      '/sokofresh-inventory.png',
+      '/sokofresh-visits.png',
+      '/sokofresh-labourers.png'
+    ]
   },
   {
     id: 4,
@@ -134,6 +151,21 @@ export default function Projects() {
                 <p className="text-gray-400 mb-6 leading-relaxed">
                   {selectedProject.fullDescription}
                 </p>
+
+                {/* Key Features */}
+                {selectedProject.features && (
+                  <div className="mb-6">
+                    <h4 className="font-bold text-white mb-3">Key Features</h4>
+                    <ul className="space-y-2">
+                      {selectedProject.features.map((feature, idx) => (
+                        <li key={idx} className="text-gray-400 flex items-start">
+                          <span className="text-gold mr-2">•</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <div className="mb-6">
                   <h4 className="font-bold text-white mb-3">Technologies Used</h4>
