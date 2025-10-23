@@ -88,3 +88,15 @@ export default function TechStack() {
     </section>
   );
 }
+user@Tyreses-M1 tyrese-portfolio % npm run dev
+
+> tyrese-portfolio@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by process 64756, using available port 3002 instead.
+   ▲ Next.js 15.5.6 (Turbopack)
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.100.56:3002
+
+ ✓ Starting...
+ ✓ Ready in 1284ms
