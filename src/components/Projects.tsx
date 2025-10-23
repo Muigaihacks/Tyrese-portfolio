@@ -3,14 +3,15 @@
 import { useState } from 'react';
 import { ExternalLink, X, Play } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const projects = [
   {
     id: 1,
-    title: 'GlycoSafe - AI-Powered Health Platform',
+    title: 'GlycoSafe - AI-powered Diabetes Management Platform',
     description: 'Revolutionary mobile application that uses AI and computer vision to analyze food images and provide real-time glycemic impact assessments for diabetes management.',
     fullDescription: 'GlycoSafe addresses the critical challenge of diabetes management by providing instant, AI-powered food analysis through smartphone cameras. The application combines advanced computer vision with machine learning algorithms to identify food items, estimate portion sizes, and calculate glycemic impact in real-time. This empowers users to make informed dietary decisions, track their glucose levels more effectively, and improve their overall health outcomes through personalized nutrition guidance.',
-    image: '/glycosafe-app.png',
+    image: '/glycosafecard.jpg',
     technologies: ['React Native', 'TensorFlow', 'Computer Vision', 'Firebase', 'Node.js', 'MongoDB'],
     features: [
       'AI-powered food recognition and analysis',
@@ -24,7 +25,7 @@ const projects = [
     ],
     link: 'https://glycosafe.jhubafrica.com',
     category: 'Health Tech',
-    demoVideo: '/glycosafe-demo.mp4',
+    demoVideo: 'https://youtu.be/LS817Ood-0A?si=ivn-ujEsP2O6dsuY',
     hasDetailedPage: false
   },
   {
@@ -32,17 +33,17 @@ const projects = [
     title: 'Corporate Website',
     description: 'Designed and developed a modern corporate website for ByteFlow, featuring a sleek dark mode interface and intuitive navigation.',
     fullDescription: 'The site serves as the central hub for showcasing our services, projects, and thought leadership in the tech space.',
-    image: '/project-2.jpg',
+    image: '/byteflowcard.png',
     technologies: ['Next.js', 'React', 'TailwindCSS', 'TypeScript'],
     link: 'https://byteflow.co.ke',
     category: 'Web Development'
   },
   {
     id: 3,
-    title: 'Cold Storage & Advanced Inventory Management Platform',
+    title: 'SokoFresh EA - Cold Storage & Advanced Inventory Management Platform',
     description: 'Comprehensive cold chain operations management system for multi-facility cold storage businesses, featuring real-time inventory tracking, equipment monitoring, and workforce coordination.',
     fullDescription: 'A full-stack Progressive Web Application designed to digitize and streamline cold storage operations across multiple facilities. The system provides centralized management of inventory, equipment maintenance, workforce coordination, and inter-facility logistics through an intuitive, mobile-responsive interface. Built with enterprise-grade security and scalability in mind, it transforms reactive operations into proactive management with real-time visibility and automated workflows.',
-    image: '/sokofresh-dashboard.png',
+    image: '/sokofreshcard.png',
     technologies: ['Laravel 10', 'React', 'PostgreSQL', 'Redis', 'Inertia.js', 'TailwindCSS', 'Spatie Permissions'],
     features: [
       'Multi-hub inventory management with real-time stock tracking',
@@ -70,8 +71,8 @@ const projects = [
     title: 'SmartPOS with Loyalty Rewards & Barcode Intelligence',
     description: 'Advanced point-of-sale system featuring customer loyalty points, intelligent barcode scanning, automated inventory tracking, and comprehensive retail analytics for liquor stores.',
     fullDescription: 'A comprehensive retail management system designed specifically for liquor stores, featuring integrated POS functionality, automated inventory tracking, sales analytics, and customer relationship management. The system streamlines daily operations while providing valuable business insights through detailed reporting and analytics.',
-    image: '/liquor-store-dashboard.png',
-    technologies: ['Laravel', 'Vue.js', 'MySQL', 'Stripe API', 'Chart.js'],
+    image: '/liqourstorecardprofile.png',
+    technologies: ['Django', 'Vue.js', 'PostgreSQL', 'Stripe API', 'Chart.js'],
     features: [
       'Smart barcode scanning with product recognition',
       'Customer loyalty points and rewards system',
@@ -97,10 +98,9 @@ const projects = [
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-  const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <section id="projects" className="py-20 px-6 bg-black">
+    <section id="projects" className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-16">
           My <span className="text-gold">Portfolio</span>
@@ -110,16 +110,18 @@ export default function Projects() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="dark-card rounded-xl overflow-hidden group"
+              className="bg-gray-50 rounded-xl overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300 hover:border-2 hover:border-orange-500"
             >
               {/* Project Image */}
-              <div className="h-64 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl opacity-20">📱</div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <div className="h-64 relative overflow-hidden">
+                <Image 
+                  src={project.image} 
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute bottom-4 left-4">
-                  <span className="px-3 py-1 bg-gold/20 text-gold text-sm rounded-full border border-gold/30">
+                  <span className="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">
                     {project.category}
                   </span>
                 </div>
@@ -127,10 +129,10 @@ export default function Projects() {
 
               {/* Project Info */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gold transition-colors">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4 line-clamp-2">
+                <p className="text-gray-600 mb-4 line-clamp-2">
                   {project.description}
                 </p>
                 
@@ -138,13 +140,13 @@ export default function Projects() {
                   {project.technologies.slice(0, 3).map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded border border-white/10"
+                      className="px-3 py-1 bg-white text-gray-800 text-sm rounded border border-gray-400 shadow-sm font-medium"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="px-3 py-1 bg-gold/20 text-gold text-sm rounded border border-gold/30">
+                    <span className="px-3 py-1 bg-orange-100 text-orange-700 text-sm rounded border border-orange-300 font-medium">
                       +{project.technologies.length - 3}
                     </span>
                   )}
@@ -155,27 +157,29 @@ export default function Projects() {
                   {project.hasDetailedPage ? (
                     <Link
                       href={project.link!}
-                      className="flex-1 bg-gold hover:bg-[#ff9d4d] text-black py-2 px-4 rounded-lg font-semibold text-center transition-colors"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold text-center transition-colors"
                     >
                       View Details
                     </Link>
                   ) : (
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="flex-1 bg-gold hover:bg-[#ff9d4d] text-black py-2 px-4 rounded-lg font-semibold transition-colors"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-colors"
                     >
                       Learn More
                     </button>
                   )}
                   
                   {project.demoVideo && (
-                    <button
-                      onClick={() => setShowVideo(true)}
-                      className="bg-white/10 hover:bg-white/20 text-white py-2 px-4 rounded-lg font-semibold flex items-center gap-2 transition-colors"
+                    <a
+                      href={project.demoVideo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-lg font-semibold flex items-center gap-2 transition-colors"
                     >
                       <Play className="w-4 h-4" />
                       Demo
-                    </button>
+                    </a>
                   )}
                 </div>
               </div>
@@ -258,31 +262,6 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Video Modal */}
-        {showVideo && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-gray-900 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-              <div className="p-6 border-b border-gray-800 flex justify-between items-center">
-                <h3 className="text-xl font-semibold text-white">Project Demo Video</h3>
-                <button
-                  onClick={() => setShowVideo(false)}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-              <div className="p-6">
-                <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
-                  <div className="text-center text-gray-400">
-                    <Play className="w-16 h-16 mx-auto mb-4" />
-                    <p>Demo video will be embedded here</p>
-                    <p className="text-sm mt-2">Video file: /project-demo.mp4</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

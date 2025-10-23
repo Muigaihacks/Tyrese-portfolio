@@ -3,15 +3,19 @@
 import { useState } from 'react';
 import { ArrowLeft, Github, ShoppingCart, BarChart, Users, CreditCard } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LiquorStoreSystemPage() {
   const [selectedImage, setSelectedImage] = useState(0);
 
   const screenshots = [
-    { src: '/liquor-store-dashboard.png', alt: 'Sales Dashboard', title: 'Real-time Sales Analytics' },
-    { src: '/liquor-store-pos.png', alt: 'POS Interface', title: 'Point of Sale System' },
-    { src: '/liquor-store-inventory.png', alt: 'Inventory Management', title: 'Stock Tracking & Alerts' },
-    { src: '/liquor-store-analytics.png', alt: 'Business Analytics', title: 'Performance Insights' }
+    { src: '/userdashboard.png', alt: 'User Dashboard', title: 'Employee Dashboard Overview' },
+    { src: '/userbackup.png', alt: 'System Backup', title: 'Data Backup & Preservation' },
+    { src: '/userinventory.png', alt: 'Inventory Management', title: 'Current Store Inventory' },
+    { src: '/quicksale.png', alt: 'Quick Sales', title: 'Barcode Scanner Sales' },
+    { src: '/salereceiptprint.png', alt: 'Receipt Printing', title: 'Customer Receipt Generation' },
+    { src: '/registerloyaltypoints.png', alt: 'Loyalty Registration', title: 'Customer Onboarding' },
+    { src: '/loyaltypoints.png', alt: 'Loyalty Points', title: 'Points Lookup & Redemption' }
   ];
 
   const features = [
@@ -38,9 +42,9 @@ export default function LiquorStoreSystemPage() {
   ];
 
   const technologies = [
-    { name: 'Laravel', category: 'Backend Framework' },
+    { name: 'Django', category: 'Backend Framework' },
     { name: 'Vue.js', category: 'Frontend Framework' },
-    { name: 'MySQL', category: 'Database' },
+    { name: 'PostgreSQL', category: 'Database' },
     { name: 'Stripe API', category: 'Payment Processing' },
     { name: 'Chart.js', category: 'Data Visualization' },
     { name: 'Bootstrap', category: 'UI Framework' },
@@ -80,20 +84,17 @@ export default function LiquorStoreSystemPage() {
                 providing valuable business insights through detailed reporting and analytics.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a 
-                  href="https://github.com/yourusername/liquor-store-system" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <Link 
+                  href="/#contact" 
                   className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                 >
-                  <Github className="w-5 h-5 mr-2" />
-                  View Code
-                </a>
+                  Request Demo
+                </Link>
                 <Link 
                   href="/#contact" 
                   className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  Request Demo
+                  Get In Touch
                 </Link>
               </div>
             </div>
@@ -210,7 +211,15 @@ export default function LiquorStoreSystemPage() {
                   }`}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-16 h-12 bg-gray-200 rounded flex-shrink-0"></div>
+                    <div className="w-16 h-12 bg-gray-200 rounded flex-shrink-0 overflow-hidden">
+                      <Image 
+                        src={screenshot.src} 
+                        alt={screenshot.alt}
+                        width={64}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">{screenshot.title}</h4>
                       <p className="text-sm text-gray-600">{screenshot.alt}</p>
@@ -222,7 +231,15 @@ export default function LiquorStoreSystemPage() {
             
             <div className="bg-gray-100 rounded-xl p-8 flex items-center justify-center">
               <div className="text-center">
-                <div className="w-32 h-24 bg-gray-300 rounded mb-4 mx-auto"></div>
+                <div className="w-full max-w-2xl mx-auto mb-4">
+                  <Image 
+                    src={screenshots[selectedImage].src} 
+                    alt={screenshots[selectedImage].alt}
+                    width={800}
+                    height={600}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
                 <h4 className="font-semibold text-gray-900 mb-2">{screenshots[selectedImage].title}</h4>
                 <p className="text-gray-600">{screenshots[selectedImage].alt}</p>
               </div>

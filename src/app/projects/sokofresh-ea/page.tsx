@@ -9,12 +9,12 @@ export default function SokoFreshEAPage() {
   const [selectedImage, setSelectedImage] = useState(0);
 
   const screenshots = [
-    { src: '/sokofresh-dashboard.png', alt: 'Dashboard Overview', title: 'Real-time Operations Dashboard' },
-    { src: '/sokofresh-inventory.png', alt: 'Inventory Management', title: 'Multi-location Inventory Tracking' },
-    { src: '/sokofresh-visits.png', alt: 'Visit Scheduling', title: 'Maintenance Visit Management' },
-    { src: '/sokofresh-labourers.png', alt: 'Workforce Management', title: 'Casual Labor Coordination' },
-    { src: '/sokofresh-map.png', alt: 'Geographic Intelligence', title: 'GPS-mapped Facility Operations' },
-    { src: '/sokofresh-admin.png', alt: 'Admin Panel', title: 'Enterprise Administration Interface' }
+    { src: '/inventorytracking.png', alt: 'User Interface - Inventory Management', title: 'Inventory Tracking Module' },
+    { src: '/gpsmappedfacilities.png', alt: 'User Interface - GPS Mapping', title: 'GPS-mapped Facility Assets' },
+    { src: '/admindashboard.png', alt: 'Admin Interface - Dashboard', title: 'Admin Dashboard Overview' },
+    { src: '/casuallabourercoordination.png', alt: 'Admin Interface - Workforce', title: 'Casual Labourer Coordination' },
+    { src: '/inventoryactionlog.png', alt: 'Admin Interface - Tracking', title: 'Inventory Action Log' },
+    { src: '/maintenancevisit.png', alt: 'Admin Interface - Maintenance', title: 'Scheduled Maintenance Visits' }
   ];
 
   const features = [
@@ -72,7 +72,7 @@ export default function SokoFreshEAPage() {
                 Enterprise Software
               </div>
               <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                Cold Storage & Advanced Inventory Management Platform
+                SokoFresh EA - Cold Storage & Advanced Inventory Management Platform
               </h1>
               <h2 className="text-2xl text-gray-700 mb-8">
                 Enterprise-grade cold chain operations management
@@ -83,20 +83,17 @@ export default function SokoFreshEAPage() {
                 and centralized management of inventory, equipment, workforce, and logistics.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a 
-                  href="https://github.com/yourusername/sokofresh-ea" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <Link 
+                  href="/#contact" 
                   className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  <Github className="w-5 h-5 mr-2" />
-                  View Code
-                </a>
+                  Request Demo
+                </Link>
                 <Link 
                   href="/#contact" 
                   className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  Request Demo
+                  Get In Touch
                 </Link>
               </div>
             </div>
@@ -213,7 +210,15 @@ export default function SokoFreshEAPage() {
                   }`}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-16 h-12 bg-gray-200 rounded flex-shrink-0"></div>
+                    <div className="w-16 h-12 bg-gray-200 rounded flex-shrink-0 overflow-hidden">
+                      <Image 
+                        src={screenshot.src} 
+                        alt={screenshot.alt}
+                        width={64}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">{screenshot.title}</h4>
                       <p className="text-sm text-gray-600">{screenshot.alt}</p>
@@ -225,7 +230,15 @@ export default function SokoFreshEAPage() {
             
             <div className="bg-gray-100 rounded-xl p-8 flex items-center justify-center">
               <div className="text-center">
-                <div className="w-32 h-24 bg-gray-300 rounded mb-4 mx-auto"></div>
+                <div className="w-full max-w-2xl mx-auto mb-4">
+                  <Image 
+                    src={screenshots[selectedImage].src} 
+                    alt={screenshots[selectedImage].alt}
+                    width={800}
+                    height={600}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
                 <h4 className="font-semibold text-gray-900 mb-2">{screenshots[selectedImage].title}</h4>
                 <p className="text-gray-600">{screenshots[selectedImage].alt}</p>
               </div>

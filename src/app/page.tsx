@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Projects from '@/components/Projects';
+import MultilingualText from '@/components/MultilingualText';
 import { 
   Github,
   Linkedin,
@@ -9,8 +11,7 @@ import {
   Heart,
   Coffee,
   MapPin,
-  Phone,
-  ExternalLink
+  Phone
 } from 'lucide-react';
 
 export default function Home() {
@@ -50,22 +51,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8 py-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left - Text Content */}
-            <div>
-              <h1 className="text-6xl font-bold mb-4">
-                Hi, I&apos;m <span className="text-blue-600">Tyrese Muigai</span>
-              </h1>
-              <p className="text-2xl text-gray-600 mb-6">Software Developer</p>
-              
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                I&apos;m a passionate software developer based in Nairobi, Kenya. I love creating 
-                innovative solutions and bringing ideas to life through code. Let&apos;s build something 
-                amazing together!
-              </p>
+            <div className="relative">
+              <MultilingualText />
 
               {/* Social Links */}
               <div className="flex gap-4 mb-8">
                 <a
-                  href="mailto:tyrese@byteflow.co.ke"
+                  href="mailto:tyresemuigai09@gmail.com"
                   className="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors text-white"
                 >
                   <Mail className="w-5 h-5" />
@@ -192,11 +184,11 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">About Me</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold mb-6 text-white">About Me</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Get to know more about my journey and what drives my passion for software development.
             </p>
           </div>
@@ -204,8 +196,8 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left - My Journey */}
             <div>
-              <h3 className="text-3xl font-bold mb-6">My Journey</h3>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
+              <h3 className="text-3xl font-bold mb-6 text-white">My Journey</h3>
+              <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
                   My journey into technology began with a deep curiosity about cybersecurity — 
                   understanding how systems work, how they can be exploited, and more importantly, 
@@ -240,46 +232,66 @@ export default function Home() {
 
             {/* Right - Cards Grid */}
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-6 rounded-xl">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Code2 className="w-6 h-6 text-blue-600" />
+              <div className="relative bg-white/20 backdrop-blur-2xl p-6 rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+                {/* Glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/30 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-4 shadow-lg border border-white/20">
+                    <Code2 className="w-6 h-6 text-white drop-shadow-lg" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-white drop-shadow-lg">Clean Code</h4>
+                  <p className="text-white/90 text-sm leading-relaxed drop-shadow-md">
+                    I write maintainable, scalable, and well-documented code.
+                  </p>
                 </div>
-                <h4 className="font-bold text-lg mb-2">Clean Code</h4>
-                <p className="text-gray-600 text-sm">
-                  I write maintainable, scalable, and well-documented code.
-                </p>
               </div>
 
-              <div className="bg-blue-50 p-6 rounded-xl">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="relative bg-white/20 backdrop-blur-2xl p-6 rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+                {/* Glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/30 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-4 shadow-lg border border-white/20">
+                    <svg className="w-6 h-6 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-lg mb-2">Problem Solver</h4>
-                <p className="text-gray-600 text-sm">
+                  <h4 className="font-bold text-lg mb-2 text-white drop-shadow-lg">Problem Solver</h4>
+                  <p className="text-white/90 text-sm leading-relaxed drop-shadow-md">
                   I enjoy tackling complex challenges and finding innovative solutions.
                 </p>
+                </div>
               </div>
 
-              <div className="bg-blue-50 p-6 rounded-xl">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-blue-600" />
+              <div className="relative bg-white/20 backdrop-blur-2xl p-6 rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+                {/* Glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/30 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-4 shadow-lg border border-white/20">
+                    <Heart className="w-6 h-6 text-white drop-shadow-lg" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-white drop-shadow-lg">Team Player</h4>
+                  <p className="text-white/90 text-sm leading-relaxed drop-shadow-md">
+                    I collaborate well with cross-functional teams and value communication.
+                  </p>
                 </div>
-                <h4 className="font-bold text-lg mb-2">Team Player</h4>
-                <p className="text-gray-600 text-sm">
-                  I collaborate well with cross-functional teams and value communication.
-                </p>
               </div>
 
-              <div className="bg-blue-50 p-6 rounded-xl">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Coffee className="w-6 h-6 text-blue-600" />
+              <div className="relative bg-white/20 backdrop-blur-2xl p-6 rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+                {/* Glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/30 backdrop-blur-xl rounded-2xl flex items-center justify-center mb-4 shadow-lg border border-white/20">
+                    <Coffee className="w-6 h-6 text-white drop-shadow-lg" />
+                  </div>
+                  <h4 className="font-bold text-lg mb-2 text-white drop-shadow-lg">Continuous Learner</h4>
+                  <p className="text-white/90 text-sm leading-relaxed drop-shadow-md">
+                    I stay updated with the latest technologies and best practices.
+                  </p>
                 </div>
-                <h4 className="font-bold text-lg mb-2">Continuous Learner</h4>
-                <p className="text-gray-600 text-sm">
-                  I stay updated with the latest technologies and best practices.
-                </p>
               </div>
             </div>
           </div>
@@ -287,88 +299,113 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-white">
+      <section id="skills" className="py-20 bg-gradient-to-br from-slate-800 via-blue-900 to-slate-900">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">Skills & Technologies</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-5xl font-bold mb-6 text-white">Skills & Technologies</h2>
+            <p className="text-xl text-gray-300">
               Here are the technologies and skills I work with to create amazing experiences.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Frontend Development */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6">Frontend Development</h3>
+            <div className="relative bg-white/15 backdrop-blur-2xl p-8 rounded-3xl border border-white/25 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+              {/* Glass reflection effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent rounded-3xl"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-6 text-white drop-shadow-lg">Frontend Development</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">React</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">TypeScript</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">JavaScript</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">HTML5</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">CSS3</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Tailwind CSS</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Next.js</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Vue.js</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">React</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">TypeScript</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">JavaScript</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">HTML5</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">CSS3</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Tailwind CSS</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Next.js</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Vue.js</span>
+                </div>
               </div>
             </div>
 
             {/* Backend Development */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6">Backend Development</h3>
+            <div className="relative bg-white/15 backdrop-blur-2xl p-8 rounded-3xl border border-white/25 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+              {/* Glass reflection effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent rounded-3xl"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-6 text-white drop-shadow-lg">Backend Development</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Node.js</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Python</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Express.js</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Django</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Laravel</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">PHP</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">RESTful APIs</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">GraphQL</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">MongoDB</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">PostgreSQL</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">MySQL</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Node.js</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Python</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Express.js</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Django</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Laravel</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">PHP</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">RESTful APIs</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">GraphQL</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">MongoDB</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">PostgreSQL</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">MySQL</span>
+                </div>
               </div>
             </div>
 
             {/* Cloud Infrastructure */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6">Cloud Infrastructure</h3>
+            <div className="relative bg-white/15 backdrop-blur-2xl p-8 rounded-3xl border border-white/25 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+              {/* Glass reflection effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent rounded-3xl"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-6 text-white drop-shadow-lg">Cloud Infrastructure</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">AWS</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Microsoft Azure</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Google Cloud Platform</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Docker</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Kubernetes</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">CI/CD</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Firebase</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Vercel</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">AWS</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Microsoft Azure</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Google Cloud Platform</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Docker</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Kubernetes</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">CI/CD</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Firebase</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Vercel</span>
+                </div>
               </div>
             </div>
 
             {/* Tools & Technologies */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6">Tools & Technologies</h3>
+            <div className="relative bg-white/15 backdrop-blur-2xl p-8 rounded-3xl border border-white/25 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+              {/* Glass reflection effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent rounded-3xl"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-6 text-white drop-shadow-lg">Tools & Technologies</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Git</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">GitHub</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Figma</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">VS Code</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Postman</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Linux</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Nginx</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Git</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">GitHub</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Figma</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">VS Code</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Postman</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Linux</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Nginx</span>
+                </div>
               </div>
             </div>
 
             {/* Soft Skills */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6">Soft Skills</h3>
+            <div className="relative bg-white/15 backdrop-blur-2xl p-8 rounded-3xl border border-white/25 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
+              {/* Glass reflection effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent rounded-3xl"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-6 text-white drop-shadow-lg">Soft Skills</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Problem Solving</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Team Collaboration</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Communication</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Project Management</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Agile</span>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Mentoring</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Problem Solving</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Team Collaboration</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Communication</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Project Management</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Agile</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Mentoring</span>
+                </div>
               </div>
             </div>
           </div>
@@ -376,197 +413,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">Featured Projects</h2>
-            <p className="text-xl text-gray-600">
-              Here are some of the projects I&apos;ve worked on. Each project represents a unique 
-              challenge and learning experience.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Project 1 - GlycoSafe */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-64 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 relative">
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <div className="text-center p-6">
-                    <svg className="w-20 h-20 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                    </svg>
-                    <h4 className="font-bold text-xl">AI Research Platform</h4>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">GlycoSafe</h3>
-                <p className="text-gray-600 mb-4">
-                  An AI-driven platform designed to support glycomics research through data annotation, 
-                  model training, and visualization. Responsible for data sourcing, filtration, annotation, 
-                  and training computer vision models (YOLOv8) for classification and segmentation.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Python</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">FastAPI</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">YOLOv8</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Roboflow</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">PostgreSQL</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">React</span>
-                </div>
-                <div className="flex gap-3">
-                  <a
-                    href="https://glycosafe.jhubafrica.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Visit Site
-                  </a>
-                  <button
-                    disabled
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
-                  >
-                    Demo Coming Soon
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 2 - SokoFresh */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-64 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 relative">
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <div className="text-center p-6">
-                    <svg className="w-20 h-20 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                    </svg>
-                    <h4 className="font-bold text-xl">Inventory Management</h4>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">SokoFresh Inventory System</h3>
-                <p className="text-gray-600 mb-4">
-                  A web-based inventory and asset tracking system designed for solar companies to manage 
-                  panels, batteries, and installations efficiently. Handled system design, frontend and 
-                  backend integration with REST APIs.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Next.js</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Node.js</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Express.js</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">MongoDB</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Tailwind CSS</span>
-                </div>
-                <div className="flex gap-3">
-                  <button
-                    disabled
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
-                  >
-                    Demo Coming Soon
-                  </button>
-                  <button
-                    disabled
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
-                  >
-                    Screenshots Coming
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 3 - Liquor Store */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-64 bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 relative">
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <div className="text-center p-6">
-                    <svg className="w-20 h-20 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <h4 className="font-bold text-xl">E-Commerce System</h4>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">Liquor Store Management System</h3>
-                <p className="text-gray-600 mb-4">
-                  An e-commerce-style system tailored for liquor store operations — handling product 
-                  listings, order tracking, and user authentication with a beautifully designed UI. 
-                  Currently in testing phase before deployment.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">React</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Laravel</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">MySQL</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Tailwind CSS</span>
-                </div>
-                <div className="flex gap-3">
-                  <button
-                    disabled
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
-                  >
-                    Demo Coming Soon
-                  </button>
-                  <button
-                    disabled
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
-                  >
-                    Testing Phase
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 4 - Arbitrage Bot */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-64 bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-600 relative">
-                <div className="absolute inset-0 flex items-center justify-center text-white">
-                  <div className="text-center p-6">
-                    <svg className="w-20 h-20 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    <h4 className="font-bold text-xl">DeFi Trading Bot</h4>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3">Arbitrage Bot (DeFi/Web3)</h3>
-                <p className="text-gray-600 mb-4">
-                  An automated crypto arbitrage trading bot built to identify and exploit price 
-                  inefficiencies across decentralized exchanges. Focused on blockchain integration, 
-                  smart contract interaction, and algorithmic execution logic.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Python</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Web3.js</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Ethers.js</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Solidity</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Node.js</span>
-                </div>
-                <div className="flex gap-3">
-                  <button
-                    disabled
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed"
-                  >
-                    Demo Coming Soon
-                  </button>
-                  <button
-                    disabled
-                    className="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-400 rounded-lg font-medium cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                    </svg>
-                    Private
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Projects />
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-gray-50">
@@ -586,7 +433,7 @@ export default function Home() {
                 <Mail className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="font-bold text-lg mb-2">Email</h3>
-              <p className="text-gray-600">tyrese@byteflow.co.ke</p>
+              <p className="text-gray-600">tyresemuigai09@gmail.com</p>
             </div>
 
             <div className="bg-white p-6 rounded-xl text-center">
@@ -672,13 +519,13 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <a
-                href="mailto:tyrese@byteflow.co.ke"
+                href="mailto:tyresemuigai09@gmail.com"
                 className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
               >
                 <Mail className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com/tyrese-muigai"
+                href="https://github.com/Muigaihacks"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
@@ -686,7 +533,7 @@ export default function Home() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/tyrese-muigai"
+                href="https://www.linkedin.com/in/tyrese-muigai-32a62630b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
