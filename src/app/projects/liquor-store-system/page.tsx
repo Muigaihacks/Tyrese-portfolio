@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, Github, ShoppingCart, BarChart, Users, CreditCard } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, BarChart, Users, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, ExternalLink, Github, MapPin, Users, Database, Shield, Smartphone } from 'lucide-react';
+import { ArrowLeft, MapPin, Users, Database, Shield } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
