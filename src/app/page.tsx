@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Projects from '@/components/Projects';
 import MultilingualText from '@/components/MultilingualText';
+import KratosLogo from '@/components/KratosLogo';
 import { 
   Github,
   Linkedin,
@@ -21,8 +22,8 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex justify-between items-center">
-            <a href="#home" className="text-2xl font-bold text-blue-600">
-              OZONE
+            <a href="#home">
+              <KratosLogo size="medium" />
             </a>
             
             <div className="flex items-center gap-12">
@@ -514,8 +515,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="mb-4 md:mb-0">
-              <h3 className="text-2xl font-bold text-blue-400 mb-2">OZONE</h3>
-              <p className="text-gray-400">Tyrese Muigai • Software Developer • Nairobi, Kenya</p>
+              <KratosLogo size="medium" showTagline={true} variant="dark" className="mb-2" />
+              <p className="text-gray-400 mt-2">Tyrese Muigai • Software Developer • Nairobi, Kenya</p>
             </div>
             <div className="flex gap-4">
               <a
@@ -543,7 +544,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            © 2025 OZONE. All rights reserved.
+            © 2025 Kratos Systems. All rights reserved.
           </div>
         </div>
       </footer>
