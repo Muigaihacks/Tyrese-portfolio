@@ -25,12 +25,12 @@ export default function KratosLogo({
     large: 'text-base'
   };
 
-  // Graffiti-style bubbly effect with CSS - using Bungee Inline for that rounded graffiti look
-  const graffitiStyle = {
-    fontFamily: 'var(--font-bungee-inline), "Bungee Inline", "Arial Black", Impact, sans-serif',
+  // Decorative style with Cinzel Decorative font to match invoice
+  const decorativeStyle = {
+    fontFamily: 'var(--font-cinzel-decorative), "Cinzel Decorative", serif',
     fontWeight: 400,
-    letterSpacing: '0.08em',
-    transform: 'scaleY(1.2) scaleX(1.08)', // Makes letters taller and wider/bubbly
+    letterSpacing: '0.05em',
+    transform: 'scaleY(1.1)', // Slight vertical stretch for elegance
     textShadow: '4px 4px 0px rgba(30, 64, 175, 0.3), 2px 2px 0px rgba(0, 0, 0, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.1)',
     WebkitTextStroke: '0.8px rgba(30, 64, 175, 0.4)', // Adds blue outline effect
     filter: 'drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.1))',
@@ -40,17 +40,20 @@ export default function KratosLogo({
     <div className={`flex flex-col ${className}`}>
       {/* Logo Container with 3D Effect */}
       <div className="relative inline-block">
-        {/* Shadow Layer - Darker Blue (offset behind) */}
+        {/* Shadow Layer - Darker Blue (offset behind) - Subtle for readability */}
         <div 
           className={`${sizeClasses[size]} font-black uppercase`}
           style={{
             position: 'absolute',
-            top: '3px',
-            left: '3px',
+            top: '1px',
+            left: '1px',
             color: '#1e40af', // darker blue shadow
             zIndex: 0,
-            ...graffitiStyle,
-            opacity: 0.8
+            ...decorativeStyle,
+            opacity: 0.3, // Much more subtle shadow
+            textShadow: 'none', // Remove text shadow from shadow layer
+            WebkitTextStroke: 'none', // Remove stroke from shadow layer
+            filter: 'none' // Remove filter from shadow layer
           }}
         >
           <div className="leading-tight">
@@ -65,7 +68,10 @@ export default function KratosLogo({
           style={{
             color: '#3b82f6', // vibrant blue
             zIndex: 1,
-            ...graffitiStyle
+            ...decorativeStyle,
+            textShadow: '1px 1px 2px rgba(30, 64, 175, 0.2)', // Lighter, more subtle shadow
+            WebkitTextStroke: '0.3px rgba(30, 64, 175, 0.2)', // Lighter outline
+            filter: 'drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.05))', // Subtle drop shadow
           }}
         >
           <div className="leading-tight">
