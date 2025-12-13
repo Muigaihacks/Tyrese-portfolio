@@ -1,9 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import Projects from '@/components/Projects';
 import MultilingualText from '@/components/MultilingualText';
 import KratosLogo from '@/components/KratosLogo';
+import AtomLoader from '@/components/AtomLoader';
+import Atom from '@/components/Atom';
 import { 
   Github,
   Linkedin,
@@ -12,17 +15,45 @@ import {
   Heart,
   Coffee,
   MapPin,
-  Phone
+  Phone,
+  FileDown
 } from 'lucide-react';
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1800);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
+    <>
+      <AtomLoader show={loading} />
+      <div
+        style={{
+          opacity: loading ? 0 : 1,
+          transition: "opacity 0.6s ease-out",
+        }}
+      >
+        <div className="min-h-screen bg-white">
+          {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex justify-between items-center">
-            <a href="#home">
+            <a href="#home" className="flex items-center gap-3 group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Atom 
+                  size={90} 
+                  className="relative z-10" 
+                  nucleusColor="#1e40af" 
+                  electronColor="#2563eb"
+                  orbitColor="rgba(37, 99, 235, 0.4)"
+                />
+              </div>
               <KratosLogo size="medium" />
             </a>
             
@@ -82,7 +113,7 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="#projects"
                   className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
@@ -94,6 +125,14 @@ export default function Home() {
                   className="px-8 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
                 >
                   Get In Touch
+                </a>
+                <a
+                  href="/Tyrese_Muigai_Resume.pdf"
+                  download
+                  className="px-8 py-3 bg-gray-800 hover:bg-gray-900 text-white rounded-lg font-medium transition-colors flex items-center gap-2"
+                >
+                  <FileDown className="w-5 h-5" />
+                  Resume
                 </a>
               </div>
             </div>
@@ -548,6 +587,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+        </div>
+      </div>
+    </>
   );
 }

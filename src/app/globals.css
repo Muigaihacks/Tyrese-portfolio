@@ -85,6 +85,18 @@ body {
   }
 }
 
+@keyframes precession {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-spin-slow {
   animation: spin-slow 30s linear infinite;
 }
+
+/* Atom Loader Styles */
+/* Handled internally in AtomLoader.tsx */
