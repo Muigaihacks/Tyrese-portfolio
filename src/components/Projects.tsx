@@ -30,13 +30,25 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Corporate Website',
-    description: 'Designed and developed a modern corporate website for ByteFlow, featuring a sleek dark mode interface and intuitive navigation.',
-    fullDescription: 'The site serves as the central hub for showcasing our services, projects, and thought leadership in the tech space.',
+    title: 'Ashgate Real Estate Platform',
+    description: 'Comprehensive multi-module real estate management platform featuring property listings, property management with M-Pesa integration, land development advisory, and carbon credits tracking. Launching mid-January 2025.',
+    fullDescription: 'A full-stack real estate platform built for Ashgate Ltd, integrating property management, tenant relations, rent collection via M-Pesa, land development advisory services, and carbon credits tracking. The system features separate admin and user interfaces, with property owners, agents, tenants, and general users accessing different modules based on their roles. The platform includes advanced search and filtering, interactive maps, SEO-optimized property pages, and comprehensive analytics dashboards. Built with modern web technologies for scalability and performance.',
     image: '/byteflowcard.png',
-    technologies: ['Next.js', 'React', 'TailwindCSS', 'TypeScript'],
-    link: 'https://byteflow.co.ke',
-    category: 'Web Development'
+    technologies: ['Next.js 15', 'React', 'Django 5', 'DRF', 'PostgreSQL', 'Django Unfold', 'TailwindCSS', 'TypeScript'],
+    link: null,
+    category: 'Real Estate Tech',
+    features: [
+      'Property listings with advanced search and map integration',
+      'Property management system for landlords and tenants',
+      'M-Pesa integration for rent collection',
+      'Land development advisory and investor connections',
+      'Carbon credits tracking and certification',
+      'Multi-role access (Admin, Landlord, Agent, Tenant, General User)',
+      'SEO-optimized property pages',
+      'Analytics and reporting dashboards'
+    ],
+    comingSoon: true,
+    launchDate: 'Mid-January 2025'
   },
   {
     id: 3,
@@ -57,6 +69,8 @@ const projects = [
     ],
     link: '/projects/sokofresh-ea',
     category: 'Enterprise Software',
+    liveUrl: 'https://tyrese-pwa-production.up.railway.app',
+    adminAccessNote: 'For demo access to the admin panel, please contact us through the contact form.',
     demoVideo: null,
     screenshots: [
       '/sokofresh-dashboard.png',
@@ -85,6 +99,8 @@ const projects = [
     ],
     link: '/projects/liquor-store-system',
     category: 'Business Software',
+    liveUrl: 'https://liqourstoresystem.onrender.com',
+    adminAccessNote: 'For demo access to the admin panel, please contact us through the contact form.',
     demoVideo: null,
     screenshots: [
       '/liquor-store-dashboard.png',
@@ -100,13 +116,13 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <section id="projects" className="py-20 px-6 bg-white">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16">
           My <span className="text-gold">Portfolio</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -128,11 +144,11 @@ export default function Projects() {
               </div>
 
               {/* Project Info */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">
+                <p className="text-sm sm:text-base text-gray-600 mb-4 line-clamp-2">
                   {project.description}
                 </p>
                 
@@ -153,21 +169,33 @@ export default function Projects() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   {project.hasDetailedPage ? (
                     <Link
                       href={project.link!}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold text-center transition-colors"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold text-center transition-colors text-sm sm:text-base"
                     >
                       View Details
                     </Link>
                   ) : (
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-colors"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-colors text-sm sm:text-base"
                     >
                       Learn More
                     </button>
+                  )}
+                  
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors text-sm sm:text-base"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live System
+                    </a>
                   )}
                   
                   {project.demoVideo && (
@@ -175,7 +203,7 @@ export default function Projects() {
                       href={project.demoVideo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-lg font-semibold flex items-center gap-2 transition-colors"
+                      className="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors text-sm sm:text-base"
                     >
                       <Play className="w-4 h-4" />
                       Demo
@@ -198,8 +226,8 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="sticky top-0 bg-gray-900 border-b border-gray-800 p-6 flex justify-between items-center">
-                <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
+              <div className="sticky top-0 bg-gray-900 border-b border-gray-800 p-4 sm:p-6 flex justify-between items-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-white pr-4">{selectedProject.title}</h3>
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="w-10 h-10 bg-white/5 hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors"
@@ -209,11 +237,11 @@ export default function Projects() {
               </div>
 
               {/* Modal Content */}
-              <div className="p-6">
-                <p className="text-gray-300 mb-4 leading-relaxed">
+              <div className="p-4 sm:p-6">
+                <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
                   {selectedProject.description}
                 </p>
-                <p className="text-gray-400 mb-6 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-400 mb-6 leading-relaxed">
                   {selectedProject.fullDescription}
                 </p>
 
@@ -246,16 +274,42 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {selectedProject.link && !selectedProject.hasDetailedPage && (
+                {selectedProject.liveUrl && (
+                  <div className="space-y-3">
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 sm:py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors text-sm sm:text-base"
+                  >
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
+                    View Live System
+                  </a>
+                    {selectedProject.adminAccessNote && (
+                      <p className="text-sm text-gray-400 text-center italic">
+                        {selectedProject.adminAccessNote}
+                      </p>
+                    )}
+                  </div>
+                )}
+                
+                {selectedProject.link && !selectedProject.hasDetailedPage && !selectedProject.liveUrl && (
                   <a
                     href={selectedProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-gold hover:bg-[#ff9d4d] text-black py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+                    className="w-full bg-gold hover:bg-[#ff9d4d] text-black py-2.5 sm:py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors text-sm sm:text-base"
                   >
-                    <ExternalLink className="w-5 h-5" />
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
                     View Live Project
                   </a>
+                )}
+                
+                {selectedProject.comingSoon && (
+                  <div className="bg-blue-900/50 border border-blue-700 rounded-lg p-4 text-center">
+                    <p className="text-blue-300 font-semibold mb-2">Launch Date: {selectedProject.launchDate}</p>
+                    <p className="text-gray-400 text-sm">This project is currently in development and will be available soon.</p>
+                  </div>
                 )}
               </div>
             </div>
