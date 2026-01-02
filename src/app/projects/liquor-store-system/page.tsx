@@ -84,19 +84,24 @@ export default function LiquorStoreSystemPage() {
                 providing valuable business insights through detailed reporting and analytics.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link 
-                  href="/#contact" 
+                <a 
+                  href="https://liqourstoresystem.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                 >
-                  Request Demo
-                </Link>
+                  View Live System
+                </a>
                 <Link 
                   href="/#contact" 
                   className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  Get In Touch
+                  Request Admin Demo
                 </Link>
               </div>
+              <p className="text-sm text-gray-500 mt-4 italic">
+                Note: The live system provides user-side access. For demo access to the admin panel, please contact us through the contact form.
+              </p>
             </div>
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8">

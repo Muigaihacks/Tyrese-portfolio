@@ -16,11 +16,14 @@ import {
   Coffee,
   MapPin,
   Phone,
-  FileDown
+  FileDown,
+  Menu,
+  X
 } from 'lucide-react';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,14 +44,14 @@ export default function Home() {
         <div className="min-h-screen bg-white">
           {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
           <div className="flex justify-between items-center">
-            <a href="#home" className="flex items-center gap-3 group">
+            <a href="#home" className="flex items-center gap-2 sm:gap-3 group" onClick={() => setMobileMenuOpen(false)}>
               <div className="relative">
                 <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Atom 
-                  size={90} 
-                  className="relative z-10" 
+                  size={60} 
+                  className="relative z-10 sm:w-[70px] sm:h-[70px] lg:w-[90px] lg:h-[90px]" 
                   nucleusColor="#1e40af" 
                   electronColor="#2563eb"
                   orbitColor="rgba(37, 99, 235, 0.4)"
@@ -57,7 +60,8 @@ export default function Home() {
               <KratosLogo size="medium" />
             </a>
             
-            <div className="flex items-center gap-12">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8 lg:gap-12">
               <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 Home
               </a>
@@ -74,14 +78,66 @@ export default function Home() {
                 Contact
               </a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
+              <div className="flex flex-col gap-4 pt-4">
+                <a 
+                  href="#home" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </a>
+                <a 
+                  href="#about" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </a>
+                <a 
+                  href="#skills" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Skills
+                </a>
+                <a 
+                  href="#projects" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Projects
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center pt-20 bg-gradient-to-br from-blue-50 to-gray-50">
-        <div className="max-w-7xl mx-auto px-8 py-20 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="home" className="min-h-screen flex items-center pt-16 sm:pt-20 bg-gradient-to-br from-blue-50 to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left - Text Content */}
             <div className="relative">
               <MultilingualText />
@@ -113,23 +169,23 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 <a
                   href="#projects"
-                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                  className="px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm sm:text-base"
                 >
                   View My Work
                 </a>
                 <a
                   href="#contact"
-                  className="px-8 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
+                  className="px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors text-sm sm:text-base"
                 >
                   Get In Touch
                 </a>
                 <a
                   href="/Tyrese_Muigai_Resume.pdf"
                   download
-                  className="px-8 py-3 bg-gray-800 hover:bg-gray-900 text-white rounded-lg font-medium transition-colors flex items-center gap-2"
+                  className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gray-800 hover:bg-gray-900 text-white rounded-lg font-medium transition-colors flex items-center gap-2 text-sm sm:text-base"
                 >
                   <FileDown className="w-5 h-5" />
                   Resume
@@ -138,8 +194,8 @@ export default function Home() {
             </div>
 
             {/* Right - Profile Photo with Orbiting Tech Icons */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-96 h-96">
+            <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
                 {/* Orbiting Tech Icons */}
                 <div className="absolute inset-0 animate-spin-slow">
                   {/* React Icon */}
@@ -224,20 +280,20 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 text-white">About Me</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+      <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-white">About Me</h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
               Get to know more about my journey and what drives my passion for software development.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
             {/* Left - My Journey */}
             <div>
-              <h3 className="text-3xl font-bold mb-6 text-white">My Journey</h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-white">My Journey</h3>
+              <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
                 <p>
                   My journey into technology began with a deep curiosity about cybersecurity — 
                   understanding how systems work, how they can be exploited, and more importantly, 
@@ -258,10 +314,13 @@ export default function Home() {
                   principles — ensuring that every product I build is both functional and secure.
                 </p>
                 <p>
-                  Beyond development, I co-founded <span className="font-semibold text-blue-600">Byte Flow</span> — 
-                  a growing software development company focused on delivering scalable web applications 
-                  and innovative digital products. Through Byte Flow, I collaborate with diverse teams 
-                  and clients to transform complex ideas into seamless, production-ready systems.
+                  Beyond development, I founded <span className="font-semibold text-blue-600">Kratos Systems</span> — 
+                  a software development company focused on delivering scalable web applications, 
+                  innovative digital products, and comprehensive business solutions. Kratos Systems 
+                  represents the culmination of my work showcased in this portfolio — from AI-powered 
+                  health platforms and real estate management systems to enterprise inventory solutions 
+                  and retail POS systems. We transform complex ideas into seamless, production-ready 
+                  systems that drive real business value.
                 </p>
                 <p>
                   Today, I continue to evolve as a developer — exploring modern frameworks, improving 
@@ -271,7 +330,7 @@ export default function Home() {
             </div>
 
             {/* Right - Cards Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="relative bg-white/20 backdrop-blur-2xl p-6 rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
                 {/* Glass reflection effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-3xl"></div>
@@ -339,16 +398,16 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-gradient-to-br from-slate-800 via-blue-900 to-slate-900">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 text-white">Skills & Technologies</h2>
-            <p className="text-xl text-gray-300">
+      <section id="skills" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-800 via-blue-900 to-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-white">Skills & Technologies</h2>
+            <p className="text-lg sm:text-xl text-gray-300 px-4">
               Here are the technologies and skills I work with to create amazing experiences.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Frontend Development */}
             <div className="relative bg-white/15 backdrop-blur-2xl p-8 rounded-3xl border border-white/25 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
               {/* Glass reflection effect */}
@@ -365,6 +424,8 @@ export default function Home() {
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Tailwind CSS</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Next.js</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Vue.js</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Angular</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Svelte</span>
                 </div>
               </div>
             </div>
@@ -388,6 +449,7 @@ export default function Home() {
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">MongoDB</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">PostgreSQL</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">MySQL</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Redis</span>
                 </div>
               </div>
             </div>
@@ -408,6 +470,8 @@ export default function Home() {
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">CI/CD</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Firebase</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Vercel</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Render</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Railway</span>
                 </div>
               </div>
             </div>
@@ -456,18 +520,18 @@ export default function Home() {
       <Projects />
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-gray-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6">Get In Touch</h2>
-            <p className="text-xl text-gray-600">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Get In Touch</h2>
+            <p className="text-lg sm:text-xl text-gray-600 px-4">
               I&apos;m always open to discussing new opportunities and interesting projects. Let&apos;s 
               connect and create something amazing together!
             </p>
           </div>
 
           {/* Contact Info Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             <div className="bg-white p-6 rounded-xl text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-8 h-8 text-blue-600" />
@@ -494,9 +558,9 @@ export default function Home() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
+            <form className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Your Name
@@ -504,7 +568,7 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="Enter your name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm sm:text-base"
                   />
                 </div>
                 <div>
@@ -514,7 +578,7 @@ export default function Home() {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm sm:text-base"
                   />
                 </div>
               </div>
@@ -525,7 +589,7 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Enter subject"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm sm:text-base"
                 />
               </div>
               <div>
@@ -535,12 +599,12 @@ export default function Home() {
                 <textarea
                   rows={6}
                   placeholder="Enter your message"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none text-sm sm:text-base"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+                className="w-full py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors text-sm sm:text-base"
               >
                 Send Message
               </button>
@@ -550,8 +614,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-8">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="mb-4 md:mb-0">
               <KratosLogo size="medium" showTagline={true} variant="dark" className="mb-2" />
