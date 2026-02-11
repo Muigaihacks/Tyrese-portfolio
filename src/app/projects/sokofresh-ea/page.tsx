@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, MapPin, Users, Database, Shield } from 'lucide-react';
+import { ArrowLeft, MapPin, Users, Database, Shield, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -83,6 +83,15 @@ export default function SokoFreshEAPage() {
                 and centralized management of inventory, equipment, workforce, and logistics.
               </p>
               <div className="flex flex-wrap gap-4">
+                <a 
+                  href="https://tyrese-pwa-production.up.railway.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View Live System
+                </a>
                 <Link 
                   href="/#contact" 
                   className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -96,6 +105,9 @@ export default function SokoFreshEAPage() {
                   Get In Touch
                 </Link>
               </div>
+              <p className="text-sm text-gray-500 mt-4 italic">
+                For demo access to the admin panel, please contact us through the contact form.
+              </p>
             </div>
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8">
