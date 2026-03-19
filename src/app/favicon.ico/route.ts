@@ -16,7 +16,10 @@ export async function GET() {
   return new Response(buffer, {
     headers: {
       "Content-Type": "image/x-icon",
-      "Cache-Control": "no-store, max-age=0",
+      // Safari/iOS can be aggressive about favicon caching and may ignore query params.
+      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+      Pragma: "no-cache",
+      Expires: "0",
     },
   });
 }
