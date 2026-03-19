@@ -23,11 +23,12 @@ export const metadata: Metadata = {
   description: "Kratos Systems",
   icons: {
     icon: [
+      { url: "/favicon.ico?v=3", type: "image/x-icon" },
       { url: "/favicon.svg?v=3", type: "image/svg+xml" },
       { url: "/icon.svg?v=3", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.svg?v=3",
-    apple: "/icon.svg?v=3",
+    shortcut: "/favicon.ico?v=3",
+    apple: "/favicon.svg?v=3",
   },
 };
 
