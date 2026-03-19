@@ -1,0 +1,134 @@
+import { NextResponse } from "next/server";
+
+type ContactPayload = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  company?: string;
+};
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const ipRequestLog = new Map<string, number[]>();
+
+function sanitizeHeaderValue(value: string) {
+  return value.replace(/[\r\n]/g, "").trim();
+}
+
+function checkRateLimit(ip: string) {
+  const now = Date.now();
+  const recentRequests = (ipRequestLog.get(ip) || []).filter(
+    (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS
+  );
+  recentRequests.push(now);
+  ipRequestLog.set(ip, recentRequests);
+  return recentRequests.length <= RATE_LIMIT_MAX_REQUESTS;
+}
+
+export async function POST(request: Request) {
+  const host = request.headers.get("host");
+  const origin = request.headers.get("origin");
+  if (host && origin && !origin.includes(host)) {
+    return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+  }
+
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const ip = forwardedFor?.split(",")[0]?.trim() || "unknown";
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
+  let body: ContactPayload;
+
+  try {
+    body = (await request.json()) as ContactPayload;
+  } catch {
+    return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+  }
+
+  const name = sanitizeHeaderValue(body.name || "");
+  const email = sanitizeHeaderValue(body.email || "");
+  const subject = sanitizeHeaderValue(body.subject || "");
+  const message = body.message?.trim() || "";
+  const company = body.company?.trim() || "";
+
+  if (company) {
+    // Honeypot field - if this is filled, the submission is likely automated.
+    return NextResponse.json({ success: true });
+  }
+
+  if (!name || !email || !subject || !message) {
+    return NextResponse.json(
+      { error: "All fields are required." },
+      { status: 400 }
+    );
+  }
+
+  if (!isValidEmail(email)) {
+    return NextResponse.json(
+      { error: "Please provide a valid email address." },
+      { status: 400 }
+    );
+  }
+
+  if (name.length > 120 || email.length > 160 || subject.length > 200 || message.length > 5000) {
+    return NextResponse.json(
+      { error: "One or more fields are too long." },
+      { status: 400 }
+    );
+  }
+
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const toEmail = process.env.CONTACT_TO_EMAIL;
+  const fromEmail = process.env.CONTACT_FROM_EMAIL;
+
+  if (!resendApiKey || !toEmail || !fromEmail) {
+    return NextResponse.json(
+      {
+        error:
+          "Contact form is not configured yet. Add RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL.",
+      },
+      { status: 500 }
+    );
+  }
+
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [toEmail],
+        reply_to: email,
+        subject: `[Portfolio] ${subject}`,
+        text: `New contact form submission\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      return NextResponse.json(
+        { error: `Failed to send message: ${errorText}` },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json(
+      { error: "Unexpected error while sending your message." },
+      { status: 500 }
+    );
+  }
+}

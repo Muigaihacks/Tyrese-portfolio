@@ -24,6 +24,18 @@ import {
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    company: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,6 +43,61 @@ export default function Home() {
     }, 1800);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message.");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Message sent successfully. I will get back to you shortly.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        company: "",
+      });
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while sending your message.";
+
+      setSubmitStatus({
+        type: "error",
+        message: errorMessage,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -484,31 +551,13 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-6 text-white drop-shadow-lg">Tools & Technologies</h3>
               <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Git</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">GitHub</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">GitHub / GitLab</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Figma</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">VS Code</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Postman</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Linux</span>
                   <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Nginx</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Soft Skills */}
-            <div className="relative bg-white/15 backdrop-blur-2xl p-8 rounded-3xl border border-white/25 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group overflow-hidden">
-              {/* Glass reflection effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent rounded-3xl"></div>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-6 text-white drop-shadow-lg">Soft Skills</h3>
-              <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Problem Solving</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Team Collaboration</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Communication</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Project Management</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Agile</span>
-                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Mentoring</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">Cursor</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">TensorFlow</span>
+                  <span className="px-4 py-2 bg-white/20 backdrop-blur-xl text-white rounded-2xl text-sm font-medium shadow-lg border border-white/20 hover:bg-white/30 transition-all duration-300">PyTorch</span>
                 </div>
               </div>
             </div>
@@ -559,7 +608,18 @@ export default function Home() {
 
           {/* Contact Form */}
           <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
-            <form className="space-y-4 sm:space-y-6">
+            <form onSubmit={handleContactSubmit} className="space-y-4 sm:space-y-6">
+              <input
+                id="company"
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -567,7 +627,11 @@ export default function Home() {
                   </label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="Enter your name"
+                    required
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm sm:text-base"
                   />
                 </div>
@@ -577,7 +641,11 @@ export default function Home() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Enter your email"
+                    required
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm sm:text-base"
                   />
                 </div>
@@ -588,7 +656,11 @@ export default function Home() {
                 </label>
                 <input
                   type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
                   placeholder="Enter subject"
+                  required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm sm:text-base"
                 />
               </div>
@@ -597,16 +669,32 @@ export default function Home() {
                   Message
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={6}
                   placeholder="Enter your message"
+                  required
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none text-sm sm:text-base"
                 ></textarea>
               </div>
+              {submitStatus && (
+                <div
+                  className={`rounded-lg px-4 py-3 text-sm ${
+                    submitStatus.type === "success"
+                      ? "bg-green-50 text-green-700 border border-green-200"
+                      : "bg-red-50 text-red-700 border border-red-200"
+                  }`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors text-sm sm:text-base"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
