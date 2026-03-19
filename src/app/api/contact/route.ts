@@ -12,6 +12,19 @@ function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function normalizeFromValue(value: string) {
+  const cleaned = value.replace(/^['"]|['"]$/g, "").trim();
+  const displayMatch = cleaned.match(/^(.*)<([^<>@\s]+@[^<>@\s]+\.[^<>@\s]+)>$/);
+  if (displayMatch) {
+    const displayName = displayMatch[1].trim();
+    const address = displayMatch[2].trim();
+    if (!isValidEmail(address)) return null;
+    return displayName ? `${displayName} <${address}>` : address;
+  }
+
+  return isValidEmail(cleaned) ? cleaned : null;
+}
+
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 const ipRequestLog = new Map<string, number[]>();
@@ -87,15 +100,23 @@ export async function POST(request: Request) {
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL;
-  const fromEmail = process.env.CONTACT_FROM_EMAIL;
+  const toEmail = sanitizeHeaderValue(process.env.CONTACT_TO_EMAIL || "");
+  const fromEmailRaw = process.env.CONTACT_FROM_EMAIL || "";
+  const fromEmail = normalizeFromValue(fromEmailRaw) || "onboarding@resend.dev";
 
-  if (!resendApiKey || !toEmail || !fromEmail) {
+  if (!resendApiKey || !toEmail) {
     return NextResponse.json(
       {
         error:
           "Contact form is not configured yet. Add RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL.",
       },
+      { status: 500 }
+    );
+  }
+
+  if (!isValidEmail(toEmail)) {
+    return NextResponse.json(
+      { error: "CONTACT_TO_EMAIL is invalid." },
       { status: 500 }
     );
   }
