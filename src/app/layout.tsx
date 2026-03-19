@@ -23,12 +23,12 @@ export const metadata: Metadata = {
   description: "Kratos Systems",
   icons: {
     icon: [
-      { url: "/favicon.ico?v=3", type: "image/x-icon" },
-      { url: "/favicon.svg?v=3", type: "image/svg+xml" },
-      { url: "/icon.svg?v=3", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=4", type: "image/x-icon" },
+      { url: "/favicon.svg?v=4", type: "image/svg+xml" },
+      { url: "/icon.svg?v=4", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico?v=3",
-    apple: "/favicon.svg?v=3",
+    shortcut: "/favicon.ico?v=4",
+    apple: "/favicon.svg?v=4",
   },
 };
 
@@ -39,6 +39,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Explicit icons to avoid cached/incorrect defaults on some browsers */}
+        <link rel="icon" href="/favicon.ico?v=4" />
+        <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} antialiased`}
       >
