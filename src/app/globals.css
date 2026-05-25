@@ -2,101 +2,184 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* ============================================================
+   Kratos Systems, brand tokens as CSS variables.
+   Tailwind classes read from tailwind.config.js; raw CSS reads
+   from these. Keep the two in sync.
+   ============================================================ */
+
+:root {
+  /* Surface scale */
+  --surface:        #0B0F0F;
+  --surface-raised: #111716;
+  --surface-sunken: #070A0A;
+  --surface-paper:  #F6F4EE;
+  --surface-ink:    #0A0E0E;
+
+  /* Brand teal scale */
+  --kratos-50:  #EAF7F6;
+  --kratos-100: #C8EAE7;
+  --kratos-200: #94D6D0;
+  --kratos-300: #5FC0B8;
+  --kratos-400: #34A89F;
+  --kratos-500: #1F8E86;
+  --kratos-600: #176F69;
+  --kratos-700: #125652;
+  --kratos-800: #0E403D;
+  --kratos-900: #0A2B29;
+
+  /* Accent */
+  --accent:      #E8FF59;
+  --accent-warm: #F2B441;
+
+  /* Neutrals */
+  --muted: #7A8584;
+
+  /* Semantic, light theme defaults */
+  --bg:           var(--surface-paper);
+  --bg-raised:    #FFFFFF;
+  --fg:           #0A0E0E;
+  --fg-muted:     #4A5453;
+  --border:       rgba(10, 14, 14, 0.08);
+
+  /* Motion */
+  --ease-kratos: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-html {
-  scroll-behavior: smooth;
+.dark {
+  --bg:        var(--surface);
+  --bg-raised: var(--surface-raised);
+  --fg:        #EAF7F6;
+  --fg-muted:  #94A09F;
+  --border:    rgba(255, 255, 255, 0.08);
 }
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+/* Display headlines */
+.font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-feature-settings: 'ss01', 'ss02';
 }
 
-::-webkit-scrollbar-track {
-  background: #f3f4f6;
+/* Mono technical signals */
+.font-mono {
+  font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
+/* Scrollbar, themed */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
-  border-radius: 5px;
+  background: var(--kratos-700);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--kratos-500); }
+
+/* Selection */
+::selection {
+  background: var(--kratos-500);
+  color: #FFFFFF;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+/* Subtle dot grid, used as hero/background texture */
+.dot-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(94, 192, 184, 0.18) 1px, transparent 0);
+  background-size: 32px 32px;
 }
 
-/* Gold text */
-.text-gold {
-  color: #F59E42;
+/* Marquee keyframes, used by TechnologiesMarquee. Duplicate logo list and
+   translate -50% so the loop is seamless. */
+@keyframes marquee-left {
+  from { transform: translateX(0);     }
+  to   { transform: translateX(-50%);  }
 }
 
-.bg-gold {
-  background-color: #F59E42;
+@keyframes marquee-right {
+  from { transform: translateX(-50%);  }
+  to   { transform: translateX(0);     }
 }
 
-/* Gradient text */
-.gradient-gold {
-  background: linear-gradient(135deg, #F59E42 0%, #ffb366 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Dark card */
-.dark-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #F59E42;
-}
-
-/* Code background pattern */
-.code-bg {
-  background-image: 
-    linear-gradient(rgba(245, 158, 66, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245, 158, 66, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-
-/* Slow spinning animation for orbiting tech icons */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/* ============================================================
+   Atom precession keyframe (used by Atom.tsx).
+   ============================================================ */
 @keyframes precession {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
 }
 
-.animate-spin-slow {
-  animation: spin-slow 30s linear infinite;
+@keyframes nucleus-pulse {
+  0%, 100% { transform: scale(1);    filter: brightness(1); }
+  50%      { transform: scale(1.08); filter: brightness(1.25); }
 }
 
-/* Atom Loader Styles */
-/* Handled internally in AtomLoader.tsx */
+@keyframes electron-fade-trail {
+  from { stroke-opacity: 0.6; }
+  to   { stroke-opacity: 0;   }
+}
+
+/* ============================================================
+   Animated edge shimmer, a bright teal arc rotates around an
+   element's border. Used on the GlassNav. Needs @property for
+   the angle to animate smoothly.
+   ============================================================ */
+@property --shimmer-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes shimmer-rotate {
+  to { --shimmer-angle: 360deg; }
+}
+
+.glass-shimmer-ring {
+  --shimmer-angle: 0deg;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--shimmer-angle),
+    transparent 0%,
+    rgba(94, 192, 184, 0.55) 6%,
+    rgba(94, 192, 184, 0.95) 10%,
+    rgba(94, 192, 184, 0.55) 14%,
+    transparent 22%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: shimmer-rotate 6s linear infinite;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Reduced-motion override, kill all our keyframe animations.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

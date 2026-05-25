@@ -1,37 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cinzel_Decorative } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces, JetBrains_Mono } from "next/font/google";
+import CookieBanner from "@/components/CookieBanner";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const cinzelDecorative = Cinzel_Decorative({
-  weight: "400",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  variable: "--font-cinzel-decorative",
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Kratos Systems",
-  description: "Kratos Systems",
+  metadataBase: new URL("https://kratossystems.africa"),
+  title: {
+    default: "Kratos Systems, Engineered software for ambitious businesses",
+    template: "%s · Kratos Systems",
+  },
+  description:
+    "Kratos Systems builds production-grade web platforms, AI workflows, and internal tooling for businesses across Africa.",
   icons: {
     icon: [
-      // Include both cached and cache-busting variants.
-      // Some browsers (notably Safari) may cache by path ignoring query strings.
       { url: "/favicon.ico", type: "image/x-icon" },
-      { url: "/favicon.ico?v=4", type: "image/x-icon" },
-      { url: "/favicon.svg?v=4", type: "image/svg+xml" },
-      { url: "/icon.svg?v=4", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=5", type: "image/x-icon" },
+      { url: "/favicon.svg?v=5", type: "image/svg+xml" },
+      { url: "/icon.svg?v=5", type: "image/svg+xml" },
     ],
     shortcut: "/favicon.ico",
-    apple: "/favicon.svg?v=4",
+    apple: "/favicon.svg?v=5",
   },
 };
 
@@ -41,17 +54,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
-        {/* Explicit icons to avoid cached/incorrect defaults on some browsers */}
         <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" href="/favicon.ico?v=4" />
-        <link rel="icon" href="/favicon.svg?v=4" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

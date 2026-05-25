@@ -1,11 +1,9 @@
 import { NextResponse } from "next/server";
 
-type ContactPayload = {
-  name: string;
+type NewsletterPayload = {
   email: string;
-  subject: string;
-  message: string;
-  company?: string;
+  /** Honeypot: bots often fill generic "website" fields. */
+  website?: string;
 };
 
 function isValidEmail(value: string) {
@@ -26,7 +24,7 @@ function normalizeFromValue(value: string) {
 }
 
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
-const RATE_LIMIT_MAX_REQUESTS = 5;
+const RATE_LIMIT_MAX_REQUESTS = 10;
 const ipRequestLog = new Map<string, number[]>();
 
 function sanitizeHeaderValue(value: string) {
@@ -59,30 +57,23 @@ export async function POST(request: Request) {
     );
   }
 
-  let body: ContactPayload;
+  let body: NewsletterPayload;
 
   try {
-    body = (await request.json()) as ContactPayload;
+    body = (await request.json()) as NewsletterPayload;
   } catch {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const name = sanitizeHeaderValue(body.name || "");
   const email = sanitizeHeaderValue(body.email || "");
-  const subject = sanitizeHeaderValue(body.subject || "");
-  const message = body.message?.trim() || "";
-  const company = body.company?.trim() || "";
+  const website = body.website?.trim() || "";
 
-  if (company) {
-    // Honeypot field - if this is filled, the submission is likely automated.
+  if (website) {
     return NextResponse.json({ success: true });
   }
 
-  if (!name || !email || !subject || !message) {
-    return NextResponse.json(
-      { error: "All fields are required." },
-      { status: 400 }
-    );
+  if (!email) {
+    return NextResponse.json({ error: "Email is required." }, { status: 400 });
   }
 
   if (!isValidEmail(email)) {
@@ -92,11 +83,8 @@ export async function POST(request: Request) {
     );
   }
 
-  if (name.length > 120 || email.length > 160 || subject.length > 200 || message.length > 5000) {
-    return NextResponse.json(
-      { error: "One or more fields are too long." },
-      { status: 400 }
-    );
+  if (email.length > 160) {
+    return NextResponse.json({ error: "Email is too long." }, { status: 400 });
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
@@ -108,7 +96,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "Contact form is not configured yet. Add RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL.",
+          "Newsletter is not configured yet. Add RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL.",
       },
       { status: 500 }
     );
@@ -132,15 +120,15 @@ export async function POST(request: Request) {
         from: fromEmail,
         to: [toEmail],
         reply_to: email,
-        subject: `[Kratos Systems] ${subject}`,
-        text: `New contact form submission\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+        subject: `[Kratos Systems] Newsletter signup`,
+        text: `Someone subscribed to the site newsletter.\n\nEmail: ${email}\n\nReply directly to this message to reach them.`,
       }),
     });
 
     if (!response.ok) {
       const errorText = await response.text();
       return NextResponse.json(
-        { error: `Failed to send message: ${errorText}` },
+        { error: `Failed to subscribe: ${errorText}` },
         { status: 502 }
       );
     }
@@ -148,7 +136,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json(
-      { error: "Unexpected error while sending your message." },
+      { error: "Unexpected error while subscribing." },
       { status: 500 }
     );
   }
