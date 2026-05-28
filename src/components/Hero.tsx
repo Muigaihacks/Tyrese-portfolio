@@ -1,5 +1,6 @@
 "use client";
 
+import { CALENDLY_INTRO_URL } from "@/lib/contact-email";
 import { useEffect, useState } from "react";
 import Atom from "./Atom";
 import CursorTrail from "./CursorTrail";
@@ -71,7 +72,9 @@ export default function Hero() {
 
         <div className="flex flex-wrap gap-3 mt-10 justify-center">
           <a
-            href="/#contact"
+            href={CALENDLY_INTRO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-7 py-3 rounded-full bg-kratos-500 hover:bg-kratos-400 text-surface-ink font-semibold text-sm transition-colors"
           >
             Book a Call

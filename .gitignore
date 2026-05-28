@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local PDF extract tooling
+/.venv-pdf/
+/_tmp_*.txt

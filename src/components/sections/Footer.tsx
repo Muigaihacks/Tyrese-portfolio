@@ -1,5 +1,3 @@
-"use client";
-
 import {
   COMPANY_EMAIL_DISPLAY,
   CALENDLY_INTRO_URL,
@@ -43,9 +41,10 @@ const NAV_GROUPS = [
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy",   href: "/privacy" },
+      { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms of Service", href: "/terms" },
-      { label: "Cookie Policy",    href: "/cookies" },
+      { label: "Cookie Policy", href: "/cookies" },
+      { label: "Cookie settings", href: "/cookies#your-cookie-choices-and-consent" },
     ],
   },
 ];
@@ -114,7 +113,7 @@ export default function Footer() {
                 </div>
                 <ul className="space-y-2.5">
                   {group.links.map((l) => (
-                    <li key={l.label}>
+                    <li key={`${group.title}-${l.label}`}>
                       <a
                         href={l.href}
                         target={l.href.startsWith("http") ? "_blank" : undefined}

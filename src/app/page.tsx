@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import AtomLoader from "@/components/AtomLoader";
 import GlassNav from "@/components/GlassNav";
 import Hero from "@/components/Hero";
@@ -14,7 +14,6 @@ import WhoWeServeSection from "@/components/sections/WhoWeServeSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import NewsletterSection from "@/components/sections/NewsletterSection";
-import Footer from "@/components/sections/Footer";
 
 /**
  * Kratos Systems homepage.
@@ -27,10 +26,11 @@ import Footer from "@/components/sections/Footer";
  */
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const onLoaderComplete = useCallback(() => setLoading(false), []);
 
   return (
     <>
-      <AtomLoader onComplete={() => setLoading(false)} />
+      <AtomLoader onComplete={onLoaderComplete} />
       <div
         style={{
           opacity: loading ? 0 : 1,
@@ -51,7 +51,6 @@ export default function Home() {
           <ContactSection />
           <NewsletterSection />
         </main>
-        <Footer />
         <ScrollToTop />
       </div>
     </>

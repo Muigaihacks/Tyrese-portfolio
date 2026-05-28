@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fraunces, JetBrains_Mono } from "next/font/google";
 import CookieBanner from "@/components/CookieBanner";
+import Footer from "@/components/sections/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,7 +30,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kratossystems.africa"),
+  metadataBase: new URL("https://www.kratosystems.africa"),
   title: {
     default: "Kratos Systems, Engineered software for ambitious businesses",
     template: "%s · Kratos Systems",
@@ -63,6 +64,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
+        <Footer />
         <CookieBanner />
       </body>
     </html>

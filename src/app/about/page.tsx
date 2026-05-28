@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/sections/Footer";
 import GlassNav from "@/components/GlassNav";
 import ScrollToTop from "@/components/ScrollToTop";
 import {
@@ -159,10 +158,12 @@ export default function AboutPage() {
           <p>
             In 2021 Tyrese was a finalist to the{" "}
             <strong className="text-white/88 font-medium">African Leadership Academy</strong> in Johannesburg,
-            South Africa, which reinforces an Africa-centered lens on ambition: build serious systems here,
-            collaborate with partners who operate at scale elsewhere, and keep the paperwork honest enough for{" "}
+            South Africa. That milestone sits alongside a simple drive: build serious systems on the continent,
+            then keep pushing outward with the same energy. Tyrese is actively motivated to work past the usual
+            ceiling, earn a seat at bigger tables, and collaborate on serious builds with{" "}
             <strong className="text-white/88 font-medium">multinationals</strong> and{" "}
-            <strong className="text-white/88 font-medium">African conglomerates</strong> alike.
+            <strong className="text-white/88 font-medium">African conglomerates</strong>, not as a distant dream
+            but as a deliberate next chapter of the work.
           </p>
           <p>
             Outside billable depth, Tyrese contributes through{" "}
@@ -237,7 +238,6 @@ export default function AboutPage() {
           </p>
         </section>
       </main>
-      <Footer />
       <ScrollToTop />
     </div>
   );

@@ -25,9 +25,11 @@ interface AtomLoaderProps {
  *   3500–4000 exit fade
  *
  * Behavior:
- *   - Shown only once per browser session (sessionStorage flag).
+ *   - Shown on each full page load of the homepage.
  *   - prefers-reduced-motion → skipped entirely.
  *   - ESC key or "skip" button exits early.
+ *   - In development, `reactStrictMode` is disabled in `next.config.ts` so React does not mount,
+ *     unmount, and remount effects (which previously restarted this sequence and looked like a double load).
  */
 export default function AtomLoader({
   onComplete,

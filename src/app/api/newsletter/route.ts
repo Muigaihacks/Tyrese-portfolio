@@ -1,3 +1,9 @@
+import {
+  formatResendApiError,
+  resolveResendMailConfig,
+  sanitizeHeaderValue,
+  isValidEmail,
+} from "@/lib/resend-mail-config";
 import { NextResponse } from "next/server";
 
 type NewsletterPayload = {
@@ -6,30 +12,9 @@ type NewsletterPayload = {
   website?: string;
 };
 
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-function normalizeFromValue(value: string) {
-  const cleaned = value.replace(/^['"]|['"]$/g, "").trim();
-  const displayMatch = cleaned.match(/^(.*)<([^<>@\s]+@[^<>@\s]+\.[^<>@\s]+)>$/);
-  if (displayMatch) {
-    const displayName = displayMatch[1].trim();
-    const address = displayMatch[2].trim();
-    if (!isValidEmail(address)) return null;
-    return displayName ? `${displayName} <${address}>` : address;
-  }
-
-  return isValidEmail(cleaned) ? cleaned : null;
-}
-
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 10;
 const ipRequestLog = new Map<string, number[]>();
-
-function sanitizeHeaderValue(value: string) {
-  return value.replace(/[\r\n]/g, "").trim();
-}
 
 function checkRateLimit(ip: string) {
   const now = Date.now();
@@ -87,33 +72,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Email is too long." }, { status: 400 });
   }
 
-  const resendApiKey = process.env.RESEND_API_KEY;
-  const toEmail = sanitizeHeaderValue(process.env.CONTACT_TO_EMAIL || "");
-  const fromEmailRaw = process.env.CONTACT_FROM_EMAIL || "";
-  const fromEmail = normalizeFromValue(fromEmailRaw) || "onboarding@resend.dev";
-
-  if (!resendApiKey || !toEmail) {
-    return NextResponse.json(
-      {
-        error:
-          "Newsletter is not configured yet. Add RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL.",
-      },
-      { status: 500 }
-    );
+  const mailConfig = resolveResendMailConfig();
+  if (!mailConfig.ok) {
+    return NextResponse.json({ error: mailConfig.error }, { status: 500 });
   }
 
-  if (!isValidEmail(toEmail)) {
-    return NextResponse.json(
-      { error: "CONTACT_TO_EMAIL is invalid." },
-      { status: 500 }
-    );
-  }
+  const { apiKey, toEmail, fromEmail } = mailConfig;
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${resendApiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -126,9 +96,9 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
+      const detail = await formatResendApiError(response);
       return NextResponse.json(
-        { error: `Failed to subscribe: ${errorText}` },
+        { error: `Could not subscribe (${response.status}). ${detail}` },
         { status: 502 }
       );
     }

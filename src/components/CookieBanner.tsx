@@ -54,6 +54,7 @@ export default function CookieBanner() {
 
   return (
     <div
+      id="kratos-cookie-banner"
       role="dialog"
       aria-modal="false"
       aria-label="Cookie preferences"
