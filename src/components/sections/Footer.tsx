@@ -79,7 +79,7 @@ export default function Footer() {
               Production-grade software systems, engineered for businesses on the rise. Built in Nairobi, shipped across Africa and beyond.
             </p>
             <p className="text-white/40 text-xs mt-3 max-w-sm leading-relaxed">
-              Founded and operated by Tyrese Muigai, Software Engineer & Cloud Architect
+              Operated by Tyrese Muigai, Software Engineer {"&"} Cloud Architect
             </p>
 
             {/* Socials */}

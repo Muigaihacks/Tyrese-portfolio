@@ -153,7 +153,7 @@ export default function AboutPage() {
 
         <header className="mb-14">
           <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-kratos-300">
-            // FOUNDER · STUDIO
+            // ENGINEER · STUDIO
           </span>
           <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] tracking-[-0.02em] text-white mt-3 leading-[1.05]">
             The Engineer Behind Kratos
@@ -167,9 +167,10 @@ export default function AboutPage() {
             from JKUAT.
           </p>
           <p>
-            I founded Kratos because I wanted a vehicle to do serious engineering work for real
-            businesses, not just build projects in a vacuum. Every system on this site was
-            designed, built, and shipped by me, from the data model to the deployment pipeline.
+            I started Kratos as my professional studio brand and living portfolio, a place to
+            ship serious engineering for real businesses instead of building in a vacuum. Every
+            system on this site was designed, built, and shipped by me, from the data model to the
+            deployment pipeline.
           </p>
           <p>
             My core work sits across three areas: full-stack product engineering, cloud
@@ -177,7 +178,7 @@ export default function AboutPage() {
             replace manual operations with workflows that run themselves.
           </p>
           <p>
-            Before founding Kratos, I contributed as a data engineer and UI/UX contributor on
+            Before I started Kratos, I contributed as a data engineer and UI/UX contributor on
             GlycoSafe, an AI-assisted diabetes care platform built with JHub Africa. In 2021 I was
             a finalist to the{" "}
             <strong className="text-white/88 font-medium">African Leadership Academy</strong> in
