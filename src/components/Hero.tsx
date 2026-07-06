@@ -71,7 +71,7 @@ export default function Hero() {
         </p>
 
         <p className="text-white/45 text-sm md:text-[15px] mt-4 max-w-2xl leading-relaxed">
-          Founded and operated by Tyrese Muigai, Software Engineer &amp; Cloud Architect
+          Founded and operated by Tyrese Muigai, Software Engineer & Cloud Architect
         </p>
 
         <div className="flex flex-wrap gap-3 mt-10 justify-center">
