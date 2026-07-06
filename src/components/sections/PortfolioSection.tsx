@@ -10,17 +10,18 @@ interface Project {
   category: string;
   blurb: string;
   description: string;
+  role: string;
   highlights: string[];
   stack: string[];
   /** Primary CTA (usually contact anchor) */
   href: string;
   /** Two CSS gradient stops when `imageSrc` is absent */
   gradient: [string, string];
-  /** Public path under /public — from legacy portfolio exports */
+  /** Public path under /public, from legacy portfolio exports */
   imageSrc?: string;
-  /** Opens in new tab — production product URL */
+  /** Opens in new tab, production product URL */
   liveUrl?: string;
-  /** e.g. YouTube demo — opens in new tab */
+  /** e.g. YouTube demo, opens in new tab */
   demoVideoUrl?: string;
 }
 
@@ -40,6 +41,7 @@ const PROJECTS: Project[] = [
       "Audit-ready clinical event log",
     ],
     stack: ["Flutter", "Next.js", "Python", "PyTorch", "Postgres", "AWS"],
+    role: "Data Engineer & UI/UX Contributor",
     href: "/#contact",
     gradient: ["#1F8E86", "#125652"],
     imageSrc: "/glycosafecard.jpg",
@@ -61,6 +63,7 @@ const PROJECTS: Project[] = [
       "Cal.com / WhatsApp / SendGrid / Slack integrations",
     ],
     stack: ["Next.js 15", "Node", "TypeScript", "Prisma", "Postgres", "n8n", "OpenAI"],
+    role: "Sole Engineer: Architecture, Build & Deployment",
     href: "/#contact",
     gradient: ["#34A89F", "#0E403D"],
     liveUrl: "https://acquisition-os.agency",
@@ -80,6 +83,7 @@ const PROJECTS: Project[] = [
       "M-Pesa rent collection on the roadmap",
     ],
     stack: ["Next.js", "Laravel", "GCP", "Postgres", "M-Pesa Daraja"],
+    role: "Sole Engineer: Architecture, Build & Deployment",
     href: "/#contact",
     gradient: ["#5FC0B8", "#176F69"],
     imageSrc: "/ashgate-card.jpg",
@@ -92,15 +96,16 @@ const PROJECTS: Project[] = [
     category: "Retail · Point of Sale",
     blurb: "Multi-store POS with supermarket-style loyalty.",
     description:
-      "A retail point-of-sale and back-office platform built for Kenyan shops and growing chains. The architecture is multi-tenant: an owner with two, three, or more stores runs every location from one dashboard—inventory, sales, staff, and reporting without switching systems. Checkout is M-Pesa-first with offline-capable terminals. A smart loyalty engine lets customers earn bonus reward points on every purchase and redeem them at the till, the way supermarkets do.",
+      "A retail point-of-sale and back-office platform built for Kenyan shops and growing chains. The architecture is multi-tenant: an owner with two, three, or more stores runs every location from one dashboard, with inventory, sales, staff, and reporting without switching systems. Checkout is M-Pesa-first with offline-capable terminals. A smart loyalty engine lets customers earn bonus reward points on every purchase and redeem them at the till, the way supermarkets do.",
     highlights: [
       "Multi-store management from a single owner dashboard",
-      "Multi-tenant architecture—one business, many locations",
+      "Multi-tenant architecture: one business, many locations",
       "Intelligent loyalty points: earn on purchase, redeem at checkout",
       "M-Pesa STK Push checkout at point of sale",
       "Stock control, reordering, and cross-store reporting",
     ],
     stack: ["Django", "Django Unfold", "AWS", "PostgreSQL", "M-Pesa Daraja"],
+    role: "Sole Engineer: Architecture, Build & Deployment",
     href: "/#contact",
     gradient: ["#94D6D0", "#0A2B29"],
     imageSrc: "/liqourstorecardprofile.png",
@@ -127,7 +132,7 @@ export default function PortfolioSection() {
             Selected work.
           </h2>
           <p className="text-white/55 text-base md:text-lg mt-5 leading-relaxed">
-            A handful of the systems we&apos;ve put into production. Each one was designed around a specific business problem and shipped with the team that runs it.
+            A handful of the systems I&apos;ve put into production. Each one was designed around a specific business problem and shipped for the team that runs it.
           </p>
         </div>
 
@@ -238,6 +243,9 @@ function ProjectRow({ project, flip }: { project: Project; flip: boolean }) {
         <p className="text-kratos-200 text-base md:text-lg mt-3 italic">
           {project.blurb}
         </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/40 mt-3">
+          Role: {project.role}
+        </p>
         <p className="text-white/55 text-base mt-5 leading-relaxed max-w-xl">{project.description}</p>
 
         <ul className="mt-6 space-y-2">
@@ -260,7 +268,7 @@ function ProjectRow({ project, flip }: { project: Project; flip: boolean }) {
           ))}
         </div>
 
-        {/* Date line under stack — explicit for accessibility / clarity */}
+        {/* Date line under stack, explicit for accessibility / clarity */}
         <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-white/35">
           Shipped · {project.index} · {project.year}
         </p>

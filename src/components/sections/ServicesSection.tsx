@@ -17,7 +17,14 @@ interface ServicePillar {
   blurb: string;
   bullets: string[];
   tags: string[];
+  coreExpertise?: boolean;
 }
+
+const CORE_EXPERTISE = new Set([
+  "Software Engineering",
+  "Cloud Infrastructure",
+  "Automation Systems",
+]);
 
 const PILLARS: ServicePillar[] = [
   {
@@ -32,6 +39,7 @@ const PILLARS: ServicePillar[] = [
       "Payment integrations (M-Pesa Daraja, Stripe, Flutterwave)",
     ],
     tags: ["Next.js", "React Native", "Laravel", "Django"],
+    coreExpertise: true,
   },
   {
     icon: Sparkles,
@@ -58,6 +66,7 @@ const PILLARS: ServicePillar[] = [
       "Managed databases (Postgres, Mongo, Redis)",
     ],
     tags: ["AWS", "Kubernetes", "Terraform", "Postgres"],
+    coreExpertise: true,
   },
   {
     icon: Workflow,
@@ -71,6 +80,7 @@ const PILLARS: ServicePillar[] = [
       "End-to-end business process automation",
     ],
     tags: ["n8n", "OpenAI", "Twilio", "Africa's Talking"],
+    coreExpertise: true,
   },
   {
     icon: Database,
@@ -121,7 +131,7 @@ export default function ServicesSection() {
             Six pillars. One studio.
           </h2>
           <p className="text-white/55 text-base md:text-lg mt-5 leading-relaxed">
-            We&apos;re a full-stack consultancy, from the database schema to the deployment pipeline to the AI workflow that runs on top of it. Every pillar is in-house.
+            I&apos;m a full-stack engineer and consultant, from the database schema to the deployment pipeline to the AI workflow that runs on top of it. Every pillar is something I build and deliver personally.
           </p>
         </div>
 
@@ -138,8 +148,16 @@ export default function ServicesSection() {
 
 function ServiceCard({ pillar }: { pillar: ServicePillar }) {
   const Icon = pillar.icon;
+  const isCore = pillar.coreExpertise ?? CORE_EXPERTISE.has(pillar.name);
   return (
-    <article className="group relative rounded-2xl border border-white/10 bg-surface-raised/40 p-6 transition-all duration-300 hover:border-kratos-500/40 hover:-translate-y-1 hover:bg-surface-raised/70 overflow-hidden">
+    <article
+      className={[
+        "group relative rounded-2xl border bg-surface-raised/40 p-6 transition-all duration-300 hover:border-kratos-500/40 hover:-translate-y-1 overflow-hidden",
+        isCore
+          ? "border-kratos-500/25 bg-surface-raised/55 border-l-[3px] border-l-kratos-500 hover:bg-surface-raised/80"
+          : "border-white/10 hover:bg-surface-raised/70",
+      ].join(" ")}
+    >
       {/* Subtle hover gradient */}
       <div
         aria-hidden
@@ -151,6 +169,12 @@ function ServiceCard({ pillar }: { pillar: ServicePillar }) {
       />
 
       <div className="relative">
+        {isCore ? (
+          <span className="absolute top-0 right-0 px-2.5 py-1 rounded-full font-mono text-[9px] uppercase tracking-[0.16em] text-kratos-300 bg-kratos-500/15 border border-kratos-500/30">
+            Core Expertise
+          </span>
+        ) : null}
+
         {/* Icon */}
         <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-kratos-500/15 text-kratos-300 group-hover:bg-kratos-500/25 group-hover:text-kratos-200 transition-colors">
           <Icon className="w-5 h-5" strokeWidth={1.6} />

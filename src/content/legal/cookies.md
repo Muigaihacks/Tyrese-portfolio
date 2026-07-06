@@ -14,7 +14,7 @@ When you visit www.kratosystems.africa (our **Website**), we may place small fil
 
 Under the DPA 2019, cookies and similar tracking technologies that can identify you (or contribute to your identification when combined with other data) are treated as personal data. We take that seriously.
 
-When you first visit our Website, a cookie consent banner will appear. For cookies that are not strictly necessary to make the Website work, we will ask for your opt-in consent before setting them. You can accept all, choose specific categories, or reject non-essential cookies—the choice is entirely yours.
+When you first visit our Website, a cookie consent banner will appear. For cookies that are not strictly necessary to make the Website work, we will ask for your opt-in consent before setting them. You can accept all, choose specific categories, or reject non-essential cookies, the choice is entirely yours.
 
 You can change or withdraw your consent at any time by using [Cookie settings](/cookies#your-cookie-choices-and-consent) in the footer of every page (or by managing your browser settings as described below).
 
@@ -26,9 +26,9 @@ Cookies cannot harm your device. They are not programs and cannot carry viruses 
 
 We also use similar technologies that work in a comparable way:
 
-- **Local storage** — a browser feature that stores data on your device (we use this for your cookie consent record);
-- **Web beacons / pixels** — tiny invisible images embedded in web pages or emails that can tell us whether a page was loaded or an email was opened;
-- **Session tokens** — short-lived server-side identifiers used for security and load balancing.
+- **Local storage**: a browser feature that stores data on your device (we use this for your cookie consent record);
+- **Web beacons / pixels**: tiny invisible images embedded in web pages or emails that can tell us whether a page was loaded or an email was opened;
+- **Session tokens**: short-lived server-side identifiers used for security and load balancing.
 
 Throughout this policy, when we say “cookies” we mean all of the above technologies unless we say otherwise.
 
@@ -36,11 +36,11 @@ Throughout this policy, when we say “cookies” we mean all of the above techn
 
 We use cookies for the following purposes:
 
-- **Making the Website function** — some cookies are essential. Without them, parts of the Website simply will not work (for example, keeping you securely logged in during a session).
-- **Remembering your preferences** — so you do not have to reset your language or display preferences every time you visit.
-- **Analysing website traffic and performance** — understanding which pages are popular and how visitors move through the site helps us improve it.
-- **Supporting cybersecurity and fraud prevention** — detecting suspicious activity, blocking bots, and protecting the integrity of our systems.
-- **Improving your experience** — using aggregated insights to make the Website faster, easier to navigate, and more relevant.
+- **Making the Website function**: some cookies are essential. Without them, parts of the Website simply will not work (for example, keeping you securely logged in during a session).
+- **Remembering your preferences**: so you do not have to reset your language or display preferences every time you visit.
+- **Analysing website traffic and performance**: understanding which pages are popular and how visitors move through the site helps us improve it.
+- **Supporting cybersecurity and fraud prevention**: detecting suspicious activity, blocking bots, and protecting the integrity of our systems.
+- **Improving your experience**: using aggregated insights to make the Website faster, easier to navigate, and more relevant.
 
 ## Types of Cookies We Use
 
@@ -56,7 +56,7 @@ The table below summarises the categories of cookies we use (or may activate), t
 
 **Strictly Necessary** cookies are not subject to your consent because they are essential to the basic operation and security of the Website. Refusing them is not possible without disabling the Website entirely.
 
-**Functional / Preference** cookies are only set after you give us your consent via the cookie banner. If you decline, the Website will still work fully—you may just need to re-set certain preferences on each visit.
+**Functional / Preference** cookies are only set after you give us your consent via the cookie banner. If you decline, the Website will still work fully, you may just need to re-set certain preferences on each visit.
 
 **Analytics & Performance** cookies help us understand how visitors use our Website so we can improve it. We currently use Google Analytics (operated by Google LLC) for this purpose. These cookies are only activated after you give consent. You can opt out at any time by adjusting your preferences via [Cookie settings](/cookies#your-cookie-choices-and-consent) in the footer, or by using the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout).
 
@@ -68,7 +68,7 @@ The table below summarises the categories of cookies we use (or may activate), t
 
 Some cookies on our Website are set not by us, but by third-party service providers who help us operate the site. These include:
 
-- **Google Analytics (Google LLC)** — for website traffic and performance analysis. Google’s privacy policy is available at [policies.google.com/privacy](https://policies.google.com/privacy).
+- **Google Analytics (Google LLC)**: for website traffic and performance analysis. Google’s privacy policy is available at [policies.google.com/privacy](https://policies.google.com/privacy).
 
 We do not control how third-party providers set or use their cookies. Third-party cookies are governed by each provider’s own privacy and cookie policy, not ours.
 
@@ -78,13 +78,13 @@ We will always tell you which third-party providers we activate and will only ac
 
 ## Your Cookie Choices and Consent
 
-Under the DPA 2019, you have the right to decide whether to accept non-essential cookies. We operate a strict opt-in approach—we will never set non-essential cookies without your prior consent.
+Under the DPA 2019, you have the right to decide whether to accept non-essential cookies. We operate a strict opt-in approach, we will never set non-essential cookies without your prior consent.
 
 When you first visit the Website, a cookie consent banner will appear. It gives you three clear options:
 
-1. **Accept all cookies** — you consent to all cookie categories (except strictly necessary, which are always active);
-2. **Choose by category** — you can switch individual categories on or off using granular toggles, giving you precise control (where we implement category controls in the banner);
-3. **Reject non-essential cookies** — only strictly necessary cookies will be set; the Website remains fully usable.
+1. **Accept all cookies**: you consent to all cookie categories (except strictly necessary, which are always active);
+2. **Choose by category**: you can switch individual categories on or off using granular toggles, giving you precise control (where we implement category controls in the banner);
+3. **Reject non-essential cookies**: only strictly necessary cookies will be set; the Website remains fully usable.
 
 Strictly necessary cookies do not require your consent and are always active. All other categories require your affirmative opt-in before they are activated.
 
@@ -134,7 +134,7 @@ We review this Cookie Policy periodically to keep it accurate and up to date. We
 - new legal or regulatory requirements under Kenyan law; or
 - guidance issued by the ODPC.
 
-When we make material changes—for example, introducing a new category of cookies or a new third-party provider—we will notify you via a prominent notice on our Website before the change takes effect.
+When we make material changes, for example, introducing a new category of cookies or a new third-party provider, we will notify you via a prominent notice on our Website before the change takes effect.
 
 The Effective Date at the top of this page always shows when this policy was last updated. We encourage you to check back periodically. If you have previously given consent and we introduce material changes, we may ask for your consent again.
 
@@ -160,4 +160,4 @@ We will cooperate fully with any ODPC inquiry or investigation.
 
 This Cookie Policy is governed by the laws of Kenya. It should be read alongside our Privacy Policy and Terms of Service. Kratos Systems recommends that this policy be reviewed by a qualified Kenyan advocate before public deployment.
 
-Cookie Policy — Kratos Systems | Version 1.0 | Effective Date: 27th May 2026
+Cookie Policy: Kratos Systems | Version 1.0 | Effective Date: 27th May 2026

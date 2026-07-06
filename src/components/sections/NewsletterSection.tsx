@@ -51,7 +51,7 @@ export default function NewsletterSection() {
           Short notes from the studio.
         </h2>
         <p className="text-white/55 text-base mt-4 leading-relaxed max-w-xl mx-auto">
-          Occasional dispatches on what we&apos;re shipping, what we&apos;ve learned in production, and the trade-offs we&apos;d make again.
+          Occasional dispatches on what I&apos;m shipping, what I&apos;ve learned in production, and the trade-offs I&apos;d make again.
         </p>
 
         {done ? (

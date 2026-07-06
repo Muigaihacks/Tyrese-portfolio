@@ -31,13 +31,13 @@ const STEPS: ProcessStep[] = [
     number: "03",
     title: "Build & Iterate",
     description:
-      "Weekly demos, transparent progress, and direct access to the engineers building it. You see exactly what's shipping each week, and we course-correct fast when reality diverges from the spec.",
+      "Weekly demos, transparent progress, and direct access to me, the person writing the code. You see exactly what's shipping each week, and we course-correct fast when reality diverges from the spec.",
   },
   {
     number: "04",
     title: "Launch & Operate",
     description:
-      "We deploy, instrument, and hand over with documentation that doesn't lie. Optional operate-and-evolve retainer for businesses that want to keep shipping after launch.",
+      "I deploy, instrument, and hand over with documentation that doesn't lie. Optional operate-and-evolve retainer for businesses that want to keep shipping after launch.",
   },
 ];
 

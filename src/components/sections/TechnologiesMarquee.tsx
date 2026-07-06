@@ -87,10 +87,10 @@ export default function TechnologiesMarquee() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 lg:items-end">
           <h2 className="font-display text-white text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.02em]">
-            Battle-tested tools we use to ship.
+            Battle-tested tools I use to ship.
           </h2>
           <p className="text-white/55 text-base md:text-lg leading-relaxed lg:max-w-lg lg:justify-self-end">
-            We&apos;re tool-agnostic but opinionated. These are the technologies we&apos;ve put into production most often, across web, mobile, AI, cloud, and data.
+            I&apos;m tool-agnostic but opinionated. These are the technologies I&apos;ve put into production most often, across web, mobile, AI, cloud, and data.
           </p>
         </div>
       </div>

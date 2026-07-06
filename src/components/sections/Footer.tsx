@@ -61,7 +61,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/10 bg-surface-sunken px-6 pt-20 pb-10">
       <div className="max-w-7xl mx-auto">
-        {/* Top — brand + nav groups */}
+        {/* Top: brand + nav groups */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_2.6fr] gap-12 lg:gap-16">
           {/* Brand block */}
           <div>
@@ -77,6 +77,9 @@ export default function Footer() {
             </div>
             <p className="text-white/55 text-sm leading-relaxed mt-6 max-w-sm">
               Production-grade software systems, engineered for businesses on the rise. Built in Nairobi, shipped across Africa and beyond.
+            </p>
+            <p className="text-white/40 text-xs mt-3 max-w-sm leading-relaxed">
+              Founded and operated by Tyrese Muigai, Software Engineer &amp; Cloud Architect
             </p>
 
             {/* Socials */}

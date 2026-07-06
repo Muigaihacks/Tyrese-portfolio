@@ -7,15 +7,32 @@ import {
   COMPANY_EMAIL_DISPLAY,
   PERSONAL_EMAIL_MAILTO,
 } from "@/lib/contact-email";
+import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
+
+const SOCIALS = [
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/tyrese-muigai-32a62630b/",
+    label: "LinkedIn",
+  },
+  { icon: Github, href: "https://github.com/Muigaihacks", label: "GitHub" },
+];
 
 const FAQs: { q: string; a: ReactNode }[] = [
   {
     q: "How can I get a quote or consultation?",
     a: (
       <>
-        Send a note through the contact form on the home page, reply to emails from{" "}
+        Send a note through the{" "}
+        <Link
+          href="/#contact"
+          className="text-kratos-300 underline underline-offset-2 hover:text-kratos-200"
+        >
+          contact form
+        </Link>
+        , reply to emails from{" "}
         <a
           href={PERSONAL_EMAIL_MAILTO}
           className="text-kratos-300 underline underline-offset-2 hover:text-kratos-200"
@@ -39,7 +56,7 @@ const FAQs: { q: string; a: ReactNode }[] = [
     q: "How much does website or product work cost?",
     a: (
       <>
-        Scope drives cost, so we do not quote from a brochure. Share your goals briefly, then{" "}
+        Scope drives cost, so I do not quote from a brochure. Share your goals briefly, then{" "}
         <a
           href={CALENDLY_INTRO_URL}
           target="_blank"
@@ -48,8 +65,8 @@ const FAQs: { q: string; a: ReactNode }[] = [
         >
           book a call
         </a>{" "}
-        and we will follow up with a clear, itemized proposal once we understand integrations, timelines,
-        and who needs to approve what.
+        and I will follow up with a clear, itemized proposal once I understand integrations,
+        timelines, and who needs to approve what.
       </>
     ),
   },
@@ -57,9 +74,10 @@ const FAQs: { q: string; a: ReactNode }[] = [
     q: "How long does it take to build a website?",
     a: (
       <>
-        A focused marketing site is often on the order of two to four weeks once content and approvals are
-        in flow. Larger commerce or custom builds take longer depending on integrations and compliance
-        checkpoints. Dates are agreed up front so you can plan launches and stakeholders without guesswork.
+        A focused marketing site is often on the order of two to four weeks once content and
+        approvals are in flow. Larger commerce or custom builds take longer depending on
+        integrations and compliance checkpoints. Dates are agreed up front so you can plan
+        launches and stakeholders without guesswork.
       </>
     ),
   },
@@ -67,9 +85,9 @@ const FAQs: { q: string; a: ReactNode }[] = [
     q: "Do you provide hosting, domains, and technical setup?",
     a: (
       <>
-        Yes. We can carry domain registration (including common choices around Kenya and global zones),
-        cloud hosting, SSL, email setup where needed, and the usual production hygiene so you are not glueing
-        providers together alone.
+        Yes. I can carry domain registration (including common choices around Kenya and global
+        zones), cloud hosting, SSL, email setup where needed, and the usual production hygiene
+        so you are not glueing providers together alone.
       </>
     ),
   },
@@ -77,9 +95,9 @@ const FAQs: { q: string; a: ReactNode }[] = [
     q: "Do you offer ongoing support and maintenance?",
     a: (
       <>
-        We do. Many clients want a steady rhythm for updates, backups, patching, incident response, and
-        small enhancements. Packages are scoped to how critical the system is to revenue and operations rather
-        than a one-size-fits-all brochure.
+        I do. Many clients want a steady rhythm for updates, backups, patching, incident
+        response, and small enhancements. Packages are scoped to how critical the system is to
+        revenue and operations rather than a one-size-fits-all brochure.
       </>
     ),
   },
@@ -87,9 +105,9 @@ const FAQs: { q: string; a: ReactNode }[] = [
     q: "What about payment milestones or commercial terms?",
     a: (
       <>
-        Typical projects split into phased payments tied to milestones, but the split depends on size and risk.
-        We walk through billing and timelines on a discovery call rather than pinning numbers in an FAQ so the
-        terms match both sides fairly.
+        Typical projects split into phased payments tied to milestones, but the split depends on
+        size and risk. We walk through billing and timelines on a discovery call rather than
+        pinning numbers in an FAQ so the terms match both sides fairly.
       </>
     ),
   },
@@ -97,20 +115,20 @@ const FAQs: { q: string; a: ReactNode }[] = [
     q: "How do you approach data protection and cybersecurity?",
     a: (
       <>
-        Cybersecurity has been central to Tyrese&apos;s trajectory, and engineering choices lean toward least
-        privilege, sane secrets handling, patching discipline, backups, encryption in transit and at rest
-        where it matters, and honest documentation against Kenya&apos;s KDPA posture. Contract language should
-        still be reviewed by your lawyer for your industry.
+        Cybersecurity has been central to my trajectory, and engineering choices lean toward
+        least privilege, sane secrets handling, patching discipline, backups, encryption in
+        transit and at rest where it matters, and honest documentation against Kenya&apos;s KDPA
+        posture. Contract language should still be reviewed by your lawyer for your industry.
       </>
     ),
   },
   {
     q: "Do you work outside Kenya?",
-    a: "Yes. The studio runs from Nairobi and collaborates remotely with teams in other regions while staying explicit about contracting, invoicing, and data jurisdiction expectations.",
+    a: "Yes. I run the studio from Nairobi and collaborate remotely with teams in other regions while staying explicit about contracting, invoicing, and data jurisdiction expectations.",
   },
   {
     q: "What stack do you standardise on?",
-    a: "We are pragmatic: often TypeScript, Node or similar runtimes, Next.js for suitable web surfaces, PostgreSQL-family data stores, Docker-friendly deployments, plus whatever your regulators or partners insist on integrating with.",
+    a: "I'm pragmatic: often TypeScript, Node or similar runtimes, Next.js for suitable web surfaces, PostgreSQL-family data stores, Docker-friendly deployments, plus whatever your regulators or partners insist on integrating with.",
   },
   {
     q: "Can you augment an existing engineering team?",
@@ -138,65 +156,85 @@ export default function AboutPage() {
             // FOUNDER · STUDIO
           </span>
           <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] tracking-[-0.02em] text-white mt-3 leading-[1.05]">
-            Engineering discipline, Nairobi roots, global ambitions.
+            The Engineer Behind Kratos
           </h1>
         </header>
 
         <article className="space-y-6 [&_p]:text-[15px] [&_p]:leading-[1.75] [&_p]:text-white/70">
           <p>
-            Kratos Systems is led by Tyrese Muigai, the sole founder. The through line is straightforward:
-            ambiguous specs become traceable milestones, leaky abstractions get refactored before they spread,
-            and data handling is engineered with Kenyan compliance expectations in sight (KDPA-aware defaults,
-            pragmatic logging, and retention that matches what regulators and customers actually ask for).
+            Kratos Systems is a one-person software studio. I&apos;m Tyrese Muigai, a software
+            engineer and cloud architect based in Nairobi, Kenya, with a BSc in Computer Science
+            from JKUAT.
           </p>
           <p>
-            The story begins with cybersecurity. That interest came first and never really left.
-            Along the way the work leaned hard into shipping software properly, cloud infrastructure matured in
-            parallel, and delivery became stronger because infra and application concerns were tied together
-            instead of treated like separate errands.
+            I founded Kratos because I wanted a vehicle to do serious engineering work for real
+            businesses, not just build projects in a vacuum. Every system on this site was
+            designed, built, and shipped by me, from the data model to the deployment pipeline.
           </p>
           <p>
-            In 2021 Tyrese was a finalist to the{" "}
-            <strong className="text-white/88 font-medium">African Leadership Academy</strong> in Johannesburg,
-            South Africa. That milestone sits alongside a simple drive: build serious systems on the continent,
-            then keep pushing outward with the same energy. Tyrese is actively motivated to work past the usual
-            ceiling, earn a seat at bigger tables, and collaborate on serious builds with{" "}
-            <strong className="text-white/88 font-medium">multinationals</strong> and{" "}
-            <strong className="text-white/88 font-medium">African conglomerates</strong>, not as a distant dream
-            but as a deliberate next chapter of the work.
+            My core work sits across three areas: full-stack product engineering, cloud
+            infrastructure (Google Cloud certified, AWS in progress), and automation systems that
+            replace manual operations with workflows that run themselves.
           </p>
           <p>
-            Outside billable depth, Tyrese contributes through{" "}
-            <strong className="text-white/88 font-medium">Rotary Club of Lavington</strong>. Recent projects include
-            support for{" "}
-            <strong className="text-white/88 font-medium">Sunrise of Africa School</strong> in Kitengela, where Rotarians
-            brought supplies alongside the school&apos;s own push toward sustainability, including growing food locally and
-            a greenhouse on site. Separately there was outreach at{" "}
-            <strong className="text-white/88 font-medium">Zaelyn Academy</strong> in Silanga Kibera, Nairobi, talking with
-            young teens about confidence and follow-through while providing stationery and lunch for the afternoon.
+            Before founding Kratos, I contributed as a data engineer and UI/UX contributor on
+            GlycoSafe, an AI-assisted diabetes care platform built with JHub Africa. In 2021 I was
+            a finalist to the{" "}
+            <strong className="text-white/88 font-medium">African Leadership Academy</strong> in
+            Johannesburg, a milestone that sits alongside a drive to build serious systems on the
+            continent and collaborate with multinationals and African conglomerates on ambitious
+            builds.
           </p>
           <p>
-            That ethos carries into engagements where AI assists rather than masks weak data modeling, inbound
-            automations respect truthful CRM records, dashboards reflect operational reality, and infra choices respect
-            how cost curves behave as ambitious businesses scale inside Africa and beyond.
+            Outside of engineering, I&apos;m an active rotaractor at the{" "}
+            <strong className="text-white/88 font-medium">Rotary Club of Lavington</strong> and a
+            volunteer with the Malindi Red Cross. Recent outreach includes support for{" "}
+            <strong className="text-white/88 font-medium">Sunrise of Africa School</strong> in
+            Kitengela and sessions at{" "}
+            <strong className="text-white/88 font-medium">Zaelyn Academy</strong> in Silanga
+            Kibera, Nairobi.
           </p>
         </article>
 
-        <div className="mt-14 flex flex-col sm:flex-row gap-4">
-          <a
-            href="/Tyrese_Muigai_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="mt-10 flex items-center gap-4">
+          {SOCIALS.map((s) => {
+            const Icon = s.icon;
+            return (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="w-11 h-11 rounded-full border border-white/10 hover:border-kratos-500/50 hover:bg-kratos-500/10 text-white/55 hover:text-kratos-200 flex items-center justify-center transition-all"
+              >
+                <Icon className="w-5 h-5" strokeWidth={1.6} />
+              </a>
+            );
+          })}
+        </div>
+
+        <div className="mt-14 flex flex-col sm:flex-row flex-wrap gap-4">
+          <Link
+            href="/#portfolio"
             className="inline-flex items-center justify-center rounded-full px-6 py-3 bg-kratos-500 hover:bg-kratos-400 text-surface-ink text-[13px] font-semibold transition-colors"
           >
-            Download résumé (PDF)
-          </a>
+            View portfolio
+          </Link>
           <Link
             href="/#contact"
             className="inline-flex items-center justify-center rounded-full px-6 py-3 border border-white/15 hover:border-kratos-500/45 text-[13px] font-medium text-white/90 hover:text-white transition-colors"
           >
             Start a conversation
           </Link>
+          <a
+            href="/Tyrese_Muigai_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full px-6 py-3 border border-white/15 hover:border-white/25 text-[13px] font-medium text-white/70 hover:text-white transition-colors"
+          >
+            Download résumé (PDF)
+          </a>
         </div>
 
         <section className="mt-24 pt-16 border-t border-white/10" id="faqs">

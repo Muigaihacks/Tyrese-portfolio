@@ -36,7 +36,7 @@ const AUDIENCES: Audience[] = [
     icon: Building2,
     name: "Established Businesses",
     pitch:
-      "You've got revenue and a tangle of off-the-shelf software. We replace it with a unified system you actually own.",
+      "You've got revenue and a tangle of off-the-shelf software. I replace it with a unified system you actually own.",
     bullets: [
       "Custom CRM/ERP replacing per-seat SaaS subscriptions",
       "Legacy modernization without ripping out what works",

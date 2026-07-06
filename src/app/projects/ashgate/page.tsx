@@ -9,17 +9,17 @@ export default function AshgatePage() {
     {
       icon: <LayoutGrid className="w-6 h-6" />,
       title: 'Advanced Listings with 3D Tours & Floor Plans',
-      description: 'Properties support 3D virtual tours and floor plan integration—giving buyers and renters an immersive view without leaving the platform. A clear differentiator over typical listing sites.'
+      description: 'Properties support 3D virtual tours and floor plan integration, giving buyers and renters an immersive view without leaving the platform. A clear differentiator over typical listing sites.'
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: 'Community – Verified Experts On-Platform',
-      description: 'Legal & Conveyancing, Cabro & Landscaping, Solar & Utilities, Moving & Staging. Buyers and renters get related services on Ashgate without outsourcing—every step of the property journey in one place.'
+      description: 'Legal & Conveyancing, Cabro & Landscaping, Solar & Utilities, Moving & Staging. Buyers and renters get related services on Ashgate without outsourcing, every step of the property journey in one place.'
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
       title: 'News & Insights',
-      description: 'Educative hub with expert articles and videos on land, property, and market topics—building trust and literacy so users make informed decisions.'
+      description: 'Educative hub with expert articles and videos on land, property, and market topics, building trust and literacy so users make informed decisions.'
     },
     {
       icon: <Home className="w-6 h-6" />,
@@ -72,7 +72,7 @@ export default function AshgatePage() {
                 East Africa’s premium real estate ecosystem
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                A full-stack platform built for Ashgate Ltd—from finding a home to managing investments and accessing verified experts, all in one place. Advanced listings with 3D tours and floor plans, an on-platform expert community, News & Insights, and a roadmap for property management and development advisory.
+                A full-stack platform built for Ashgate Ltd, from finding a home to managing investments and accessing verified experts, all in one place. Advanced listings with 3D tours and floor plans, an on-platform expert community, News & Insights, and a roadmap for property management and development advisory.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 
@@ -118,7 +118,7 @@ export default function AshgatePage() {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    Listings without 3D tours or floor plans—hard to assess remotely
+                    Listings without 3D tours or floor plans, hard to assess remotely
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>

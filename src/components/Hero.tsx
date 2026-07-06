@@ -70,6 +70,10 @@ export default function Hero() {
           Production-grade web platforms, AI workflows, and internal tooling, built in Nairobi, shipped across Africa and beyond.
         </p>
 
+        <p className="text-white/45 text-sm md:text-[15px] mt-4 max-w-2xl leading-relaxed">
+          Founded and operated by Tyrese Muigai, Software Engineer &amp; Cloud Architect
+        </p>
+
         <div className="flex flex-wrap gap-3 mt-10 justify-center">
           <a
             href={CALENDLY_INTRO_URL}
@@ -83,7 +87,7 @@ export default function Hero() {
             href="/#portfolio"
             className="px-7 py-3 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/5 text-white/80 hover:text-white font-medium text-sm transition-all"
           >
-            View Our Work
+            View My Work
           </a>
         </div>
       </div>

@@ -6,21 +6,21 @@ Company: Kratos Systems
 
 Contact: info@kratosystems.africa
 
-ODPC Registration No: [TBC — registration in progress under the Data Protection (Registration of Data Controllers and Data Processors) Regulations, 2021]
+ODPC Registration No: [TBC: registration in progress under the Data Protection (Registration of Data Controllers and Data Processors) Regulations, 2021]
 
 This Privacy Policy explains how Kratos Systems collects, uses, shares, retains, and protects your personal data. It also tells you about your rights under the Kenya Data Protection Act, 2019 (DPA 2019) and how to exercise them. We have written this policy in plain English so that it is easy to understand. Please read it carefully.
 
 
 
-### Who We Are — Identity of the Data Controller
+### Who We Are: Identity of the Data Controller
 
 Kratos Systems is a software engineering company incorporated in Kenya, providing Software Engineering, AI & Machine Learning, Cloud Infrastructure, Automation Systems, Data Engineering, and Cybersecurity services.
 
 Depending on the context of our work, Kratos Systems acts in one of two roles:
 
-Data Controller — when we determine the purposes and means of processing personal data ourselves (for example, when we manage our website, respond to enquiries, send marketing communications, or process invoicing data for our own business). In this role, this Privacy Policy applies directly to you.
+Data Controller: when we determine the purposes and means of processing personal data ourselves (for example, when we manage our website, respond to enquiries, send marketing communications, or process invoicing data for our own business). In this role, this Privacy Policy applies directly to you.
 
-Data Processor — when we process personal data on behalf of a client who remains the data controller of their own users' or employees' data (for example, when we build software systems or AI pipelines that handle a client's end-user data). In this role, our processing is governed by a separate Data Processing Agreement (DPA) signed with that client, not by this policy. If you are an end-user of a system built by us for one of our clients, please contact that client directly regarding your data rights.
+Data Processor: when we process personal data on behalf of a client who remains the data controller of their own users' or employees' data (for example, when we build software systems or AI pipelines that handle a client's end-user data). In this role, our processing is governed by a separate Data Processing Agreement (DPA) signed with that client, not by this policy. If you are an end-user of a system built by us for one of our clients, please contact that client directly regarding your data rights.
 
 Our contact details are:
 
@@ -34,17 +34,17 @@ We are registered (or in the process of registering) with the Office of the Data
 
 
 
-### Scope — Who This Policy Applies To
+### Scope: Who This Policy Applies To
 
 This policy applies to the following people whose personal data we process as a data controller:
 
-Website visitors — anyone who visits www.kratosystems.africa or any other website we operate.
+Website visitors: anyone who visits www.kratosystems.africa or any other website we operate.
 
-Prospective clients — individuals or representatives of organisations who enquire about our services, request proposals, or attend demonstrations.
+Prospective clients: individuals or representatives of organisations who enquire about our services, request proposals, or attend demonstrations.
 
-Clients — individuals or authorised representatives of client organisations with whom we have an active or past commercial relationship.
+Clients: individuals or authorised representatives of client organisations with whom we have an active or past commercial relationship.
 
-Newsletter and marketing subscribers — individuals who have signed up to receive communications from us.
+Newsletter and marketing subscribers: individuals who have signed up to receive communications from us.
 
 Any other individual who contacts us directly by email, phone, or through our website.
 
@@ -60,19 +60,19 @@ We only collect personal data that is adequate, relevant, and not excessive rela
 
 The categories of personal data we may collect are as follows:
 
-Identity data — your full name, job title, and the name of your organisation or employer.
+Identity data: your full name, job title, and the name of your organisation or employer.
 
-Contact data — your business or personal email address, telephone number, and postal address.
+Contact data: your business or personal email address, telephone number, and postal address.
 
-Technical and device data — your IP address, browser type and version, operating system, device identifiers, time zone, and the pages of our website you visit. This data is collected automatically when you access our website.
+Technical and device data: your IP address, browser type and version, operating system, device identifiers, time zone, and the pages of our website you visit. This data is collected automatically when you access our website.
 
-Usage data — information about how you interact with our website, including pages visited, time spent, links clicked, and referral source.
+Usage data: information about how you interact with our website, including pages visited, time spent, links clicked, and referral source.
 
-Communications data — the content of messages, enquiries, emails, or other communications you send to us, including the context of any business discussions.
+Communications data: the content of messages, enquiries, emails, or other communications you send to us, including the context of any business discussions.
 
-Special category data — we do not collect special category personal data (such as health data, biometric data, racial or ethnic origin, religious beliefs, or political opinions) unless you have given us your explicit written consent to do so, and there is a clear and documented reason for the collection. If we ever need to collect special category data, we will explain why and seek your explicit consent separately.
+Special category data: we do not collect special category personal data (such as health data, biometric data, racial or ethnic origin, religious beliefs, or political opinions) unless you have given us your explicit written consent to do so, and there is a clear and documented reason for the collection. If we ever need to collect special category data, we will explain why and seek your explicit consent separately.
 
-AI and Machine Learning interaction data — where you use or interact with AI/ML tools, demos, or features operated by us, the inputs you provide (such as text prompts, documents, or queries) and the outputs generated may constitute personal data if they relate to an identifiable individual. All such data is handled under this policy and the lawful bases set out in Section 5. Where AI/ML features process personal data as part of a client engagement, this will be governed by the applicable Data Processing Agreement.
+AI and Machine Learning interaction data: where you use or interact with AI/ML tools, demos, or features operated by us, the inputs you provide (such as text prompts, documents, or queries) and the outputs generated may constitute personal data if they relate to an identifiable individual. All such data is handled under this policy and the lawful bases set out in Section 5. Where AI/ML features process personal data as part of a client engagement, this will be governed by the applicable Data Processing Agreement.
 
 
 
@@ -80,13 +80,13 @@ AI and Machine Learning interaction data — where you use or interact with AI/M
 
 We collect your personal data through the following means:
 
-Directly from you — when you fill in a contact form on our website, send us an email, request a proposal, subscribe to our newsletter, engage us for services, or otherwise communicate with us.
+Directly from you: when you fill in a contact form on our website, send us an email, request a proposal, subscribe to our newsletter, engage us for services, or otherwise communicate with us.
 
-Automated technologies — when you visit our website, we automatically collect technical and usage data through cookies, server logs, and similar tracking technologies. Please see our [Cookie Policy](/cookies) at www.kratosystems.africa/cookies for full details of what we collect, how, and your choices.
+Automated technologies: when you visit our website, we automatically collect technical and usage data through cookies, server logs, and similar tracking technologies. Please see our [Cookie Policy](/cookies) at www.kratosystems.africa/cookies for full details of what we collect, how, and your choices.
 
-Third parties — we may receive personal data about you from third-party platforms such as professional networking sites (for example LinkedIn), referral partners, or cloud-based tools we use to manage our business operations.
+Third parties: we may receive personal data about you from third-party platforms such as professional networking sites (for example LinkedIn), referral partners, or cloud-based tools we use to manage our business operations.
 
-Publicly available sources — we may collect information that is publicly available, such as professional profiles, company websites, or publicly posted content, where relevant to a business development context.
+Publicly available sources: we may collect information that is publicly available, such as professional profiles, company websites, or publicly posted content, where relevant to a business development context.
 
 
 
@@ -114,13 +114,13 @@ Legitimate interests (DPA 2019 §30(e)):
 
 We rely on legitimate interests for the following purposes, having weighed our interests against your rights and determined that our interests are not overridden:
 
-Security monitoring — protecting our systems, infrastructure, and clients from cyberattacks, fraud, and unauthorised access.
+Security monitoring: protecting our systems, infrastructure, and clients from cyberattacks, fraud, and unauthorised access.
 
-Business development — processing contact data of prospective clients obtained through professional networking or publicly available sources to make initial contact.
+Business development: processing contact data of prospective clients obtained through professional networking or publicly available sources to make initial contact.
 
-Service improvement — analysing aggregated, anonymised usage data to improve our website and service offerings.
+Service improvement: analysing aggregated, anonymised usage data to improve our website and service offerings.
 
-Fraud prevention — identifying and blocking fraudulent or abusive activity directed at our systems.
+Fraud prevention: identifying and blocking fraudulent or abusive activity directed at our systems.
 
 You have the right to object to processing carried out on a legitimate interest basis. If you object, we must stop processing unless we can demonstrate compelling legitimate grounds that override your rights. See Section 11 for how to exercise this right.
 
@@ -132,25 +132,25 @@ Special category data: For any special category personal data (as described in S
 
 We use your personal data for the following specific purposes:
 
-Service delivery — providing the software engineering, AI/ML, cloud infrastructure, automation, data engineering, and cybersecurity services you or your organisation have engaged us for.
+Service delivery: providing the software engineering, AI/ML, cloud infrastructure, automation, data engineering, and cybersecurity services you or your organisation have engaged us for.
 
-Client communication — contacting you about your project, responding to your enquiries, sharing progress updates, and managing our relationship with you.
+Client communication: contacting you about your project, responding to your enquiries, sharing progress updates, and managing our relationship with you.
 
-Invoicing and financial administration — preparing and sending invoices, processing payments, and maintaining financial records as required by Kenyan law.
+Invoicing and financial administration: preparing and sending invoices, processing payments, and maintaining financial records as required by Kenyan law.
 
-Improving AI and ML models — where we use interaction or usage data to improve or train AI/ML models that we operate as a controller, we will inform you of this and provide you with a clear opt-out option. We will never use your personal data to train third-party AI models without your explicit consent.
+Improving AI and ML models: where we use interaction or usage data to improve or train AI/ML models that we operate as a controller, we will inform you of this and provide you with a clear opt-out option. We will never use your personal data to train third-party AI models without your explicit consent.
 
-Security monitoring — monitoring our systems and network for threats, vulnerabilities, and suspicious activity, drawing on our own cybersecurity expertise.
+Security monitoring: monitoring our systems and network for threats, vulnerabilities, and suspicious activity, drawing on our own cybersecurity expertise.
 
-Legal and regulatory compliance — meeting our obligations under Kenyan law, including the DPA 2019, the Companies Act, tax legislation, and any other applicable regulation.
+Legal and regulatory compliance: meeting our obligations under Kenyan law, including the DPA 2019, the Companies Act, tax legislation, and any other applicable regulation.
 
-Fraud prevention — detecting, investigating, and preventing fraudulent or harmful activity directed at us or our clients.
+Fraud prevention: detecting, investigating, and preventing fraudulent or harmful activity directed at us or our clients.
 
-Marketing and business development — sending you information about our services, case studies, or events where you have consented or where we have a legitimate interest to do so.
+Marketing and business development: sending you information about our services, case studies, or events where you have consented or where we have a legitimate interest to do so.
 
 
 
-### AI and Machine Learning — Specific Provisions
+### AI and Machine Learning: Specific Provisions
 
 Kratos Systems provides AI and Machine Learning services as a core part of its offering. This section explains how we handle personal data in that context and your rights in relation to automated processing.
 
@@ -162,7 +162,7 @@ Where an engagement specifically involves developing or fine-tuning an AI model 
 
 Any client data used for AI model training purposes will only be used for the purpose specified in the engagement agreement and will not be retained beyond what is necessary for that purpose.
 
-Automated decision-making — your rights under DPA 2019 §34:
+Automated decision-making: your rights under DPA 2019 §34:
 
 You have the right not to be subject to a decision made solely by automated means (without any human involvement) where that decision produces legal effects on you or similarly significantly affects you, for example, decisions about your creditworthiness, your eligibility for a service, or your professional assessment.
 
@@ -194,11 +194,11 @@ Data Protection Impact Assessments (DPIAs): For AI/ML processing activities that
 
 We may share your personal data with the following categories of recipients:
 
-Sub-contractors and technology partners — cloud infrastructure providers, email delivery platforms, CRM tools, bookkeeping software, and other technology vendors we use to operate our business. We only share data with these parties where they have signed a written Data Processing Agreement (DPA) that requires them to handle your data securely and in line with DPA 2019. Current major categories of processors include: Cloud Infrastructure Providers, Email Service Provider, CRM Platform, Accounting Software.
+Sub-contractors and technology partners: cloud infrastructure providers, email delivery platforms, CRM tools, bookkeeping software, and other technology vendors we use to operate our business. We only share data with these parties where they have signed a written Data Processing Agreement (DPA) that requires them to handle your data securely and in line with DPA 2019. Current major categories of processors include: Cloud Infrastructure Providers, Email Service Provider, CRM Platform, Accounting Software.
 
-The ODPC and law enforcement — where we are legally required to do so, for example in response to a court order, a formal request from the ODPC, or other lawful regulatory demand. We will only share the minimum data necessary to comply.
+The ODPC and law enforcement: where we are legally required to do so, for example in response to a court order, a formal request from the ODPC, or other lawful regulatory demand. We will only share the minimum data necessary to comply.
 
-Successors in a business transfer — if Kratos Systems is involved in a merger, acquisition, or sale of assets, your personal data may be transferred to the successor entity, subject to the same protections as described in this policy. We will notify you before your data is transferred and becomes subject to a different privacy policy.
+Successors in a business transfer: if Kratos Systems is involved in a merger, acquisition, or sale of assets, your personal data may be transferred to the successor entity, subject to the same protections as described in this policy. We will notify you before your data is transferred and becomes subject to a different privacy policy.
 
 We do not sell your personal data to any third party, under any circumstances.
 
@@ -214,11 +214,11 @@ Where we transfer personal data outside Kenya, we comply with DPA 2019 §49, whi
 
 The safeguards we rely on include:
 
-Adequacy decisions — where the destination country has been recognised as providing an adequate level of data protection.
+Adequacy decisions: where the destination country has been recognised as providing an adequate level of data protection.
 
-Standard Contractual Clauses (SCCs) — contractual terms based on ODPC-recognised or internationally recognised models that bind the recipient to protect your data to Kenyan standards.
+Standard Contractual Clauses (SCCs): contractual terms based on ODPC-recognised or internationally recognised models that bind the recipient to protect your data to Kenyan standards.
 
-Technical safeguards — including end-to-end encryption, pseudonymisation, and strict access controls applied to data before and during transfer.
+Technical safeguards: including end-to-end encryption, pseudonymisation, and strict access controls applied to data before and during transfer.
 
 Our main cloud infrastructure is hosted by Google Cloud Platform, Amazon Web Services, Microsoft Azure, operating in the following regions: eu-central-1,
 af-south-1,eu-west-2, me-central-1. We maintain transfer impact assessments for high-risk transfer scenarios.
@@ -237,7 +237,7 @@ The table below sets out our retention periods by data category.
 | --- | --- | --- |
 | Client contract and project data | Duration of contract + 7 years | Limitation of Actions Act (Cap 22); DPA 2019 |
 | Financial and invoicing records | 7 years from the end of the relevant financial year | Kenya Companies Act; Kenya Revenue Authority requirements |
-| Marketing and newsletter data | Until you withdraw consent or unsubscribe | DPA 2019 §30(a) — consent |
+| Marketing and newsletter data | Until you withdraw consent or unsubscribe | DPA 2019 §30(a): consent |
 | Technical and server log data | 12 months from date of collection | Legitimate interests (security monitoring) |
 | Enquiry and pre-contract data | 2 years from date of enquiry if no contract is entered | Legitimate interests (business development) |
 | AI/ML interaction data (where applicable) | As specified in the applicable DPA or consent, maximum [retention period TBC per engagement] | Contract / Consent |
@@ -325,7 +325,7 @@ handling data subject rights requests and complaints.
 
 You can contact our DPO at:
 
-Name: [DPO Name — TBC upon appointment]
+Name: [DPO Name: TBC upon appointment]
 
 Email: [dpo@kratosystems.africa or info@kratosystems.africa]
 
@@ -337,19 +337,19 @@ Once our DPO appointment is confirmed, we will update this policy with the DPO's
 
 Kratos Systems takes the security of your personal data seriously. We implement a range of technical and organisational security measures, including:
 
-Encryption — all data transmitted through our website and systems is encrypted in transit using HTTPS/TLS. Data stored on our systems is encrypted at rest.
+Encryption: all data transmitted through our website and systems is encrypted in transit using HTTPS/TLS. Data stored on our systems is encrypted at rest.
 
-Access controls — we apply the principle of least privilege, ensuring that only authorised personnel have access to personal data, and only to the extent necessary for their role. Multi-factor authentication (MFA) is required for access to administrative systems.
+Access controls: we apply the principle of least privilege, ensuring that only authorised personnel have access to personal data, and only to the extent necessary for their role. Multi-factor authentication (MFA) is required for access to administrative systems.
 
-Regular security audits — drawing on our in-house cybersecurity expertise, we conduct regular security reviews, vulnerability assessments, and penetration testing of our systems and infrastructure.
+Regular security audits: drawing on our in-house cybersecurity expertise, we conduct regular security reviews, vulnerability assessments, and penetration testing of our systems and infrastructure.
 
-Staff training — all staff who handle personal data receive regular training on data protection obligations and secure data handling practices.
+Staff training: all staff who handle personal data receive regular training on data protection obligations and secure data handling practices.
 
-Incident response procedures — we maintain documented incident response procedures that are activated in the event of a suspected data breach or security incident. See Section 14 for our breach notification commitments.
+Incident response procedures: we maintain documented incident response procedures that are activated in the event of a suspected data breach or security incident. See Section 14 for our breach notification commitments.
 
-Data segregation — production and staging/testing environments are kept strictly separate, and real personal data is not used in testing environments without appropriate safeguards.
+Data segregation: production and staging/testing environments are kept strictly separate, and real personal data is not used in testing environments without appropriate safeguards.
 
-Vendor security — we require all third-party processors and sub-contractors to maintain security standards equivalent to our own as a condition of their engagement.
+Vendor security: we require all third-party processors and sub-contractors to maintain security standards equivalent to our own as a condition of their engagement.
 
 While we take all reasonable steps to protect your data, no system is completely immune from security risks. We encourage you to use strong, unique passwords and to notify us immediately at info@kratosystems.africa if you suspect any unauthorised access to your account or data.
 
@@ -465,4 +465,4 @@ If you have any questions about this Privacy Policy, wish to exercise your data 
 
 This policy is governed by and construed in accordance with the Kenya Data Protection Act, 2019, the Computer Misuse and Cybercrimes Act, 2018, the Kenya Information and Communications Act (Cap 411A), and all applicable subsidiary regulations and ODPC guidance in force from time to time.
 
-Privacy Policy — Kratos Systems | Version 1.0 | Effective Date: 27th May 2026
+Privacy Policy: Kratos Systems | Version 1.0 | Effective Date: 27th May 2026

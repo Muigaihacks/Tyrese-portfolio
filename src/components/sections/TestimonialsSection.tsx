@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
             Built with operators who run real businesses.
           </h2>
           <p className="text-white/55 text-base md:text-lg leading-relaxed lg:max-w-md lg:justify-self-end">
-            Quotes are anonymised while we collect formal approvals. Numbers reflect production deployments, not estimates.
+            Quotes are anonymised while I collect formal approvals. Numbers reflect production deployments, not estimates.
           </p>
         </div>
 

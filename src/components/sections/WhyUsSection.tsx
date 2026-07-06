@@ -13,13 +13,13 @@ const POINTS: Differentiator[] = [
     icon: Scissors,
     title: "Bespoke, not boilerplate",
     body:
-      "Every system we build is engineered around your business logic, not bent to fit someone else's template. No \"configuration\" workarounds. No paying for features you'll never use.",
+      "Every system I build is engineered around your business logic, not bent to fit someone else's template. No \"configuration\" workarounds. No paying for features you'll never use.",
   },
   {
     icon: Banknote,
     title: "Own your stack, stop renting it",
     body:
-      "Per-seat SaaS subscriptions compound fast. We build the system you'd otherwise rent, your data, your code, your savings accumulating instead of vanishing into annual license renewals.",
+      "Per-seat SaaS subscriptions compound fast. I build the system you'd otherwise rent, your data, your code, your savings accumulating instead of vanishing into annual license renewals.",
   },
   {
     icon: Network,
@@ -29,9 +29,9 @@ const POINTS: Differentiator[] = [
   },
   {
     icon: UserRound,
-    title: "Direct line to the engineers",
+    title: "Direct line to the engineer",
     body:
-      "No project manager telephone game. You meet weekly with the people writing the code, see what's shipping, and steer the build in real time.",
+      "No project manager telephone game. You meet weekly with me, the person writing the code, see what's shipping, and steer the build in real time.",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function WhyUsSection() {
             We build systems your business actually owns.
           </h2>
           <p className="text-white/55 text-base md:text-lg leading-relaxed lg:max-w-md lg:justify-self-end">
-            Most agencies hand you a stack of subscriptions. We hand you a stack of code, purpose-built for how your company actually works, and yours to keep.
+            Most agencies hand you a stack of subscriptions. I hand you a stack of code, purpose-built for how your company actually works, and yours to keep.
           </p>
         </div>
 
