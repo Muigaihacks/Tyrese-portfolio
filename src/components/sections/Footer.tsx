@@ -11,12 +11,10 @@ const NAV_GROUPS = [
   {
     title: "Services",
     links: [
-      { label: "Software Engineering", href: "/#services" },
-      { label: "AI & Machine Learning", href: "/#services" },
+      { label: "Software Engineering",  href: "/#services" },
+      { label: "AI, ML & Automation",   href: "/#services" },
       { label: "Cloud Infrastructure",  href: "/#services" },
-      { label: "Automation Systems",    href: "/#services" },
-      { label: "Data Engineering",      href: "/#services" },
-      { label: "Cybersecurity",         href: "/#services" },
+      { label: "Systems Integration",   href: "/#services" },
     ],
   },
   {

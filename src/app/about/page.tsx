@@ -197,6 +197,56 @@ export default function AboutPage() {
           </p>
         </article>
 
+        {/* Mastercard Foundation Associate */}
+        <div className="mt-12 rounded-2xl border border-kratos-500/25 bg-surface-raised/40 p-7 relative overflow-hidden">
+          {/* Subtle background accent */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(circle at top left, rgba(31,142,134,0.08), transparent 60%)",
+            }}
+          />
+          <div className="relative">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-kratos-500/15 flex items-center justify-center">
+                {/* MasterCard-style two-circle mark */}
+                <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden>
+                  <circle cx="12" cy="16" r="9" fill="#EB001B" fillOpacity="0.85" />
+                  <circle cx="20" cy="16" r="9" fill="#F79E1B" fillOpacity="0.85" />
+                  <path d="M16 9.27a9 9 0 0 1 0 13.46A9 9 0 0 1 16 9.27Z" fill="#FF5F00" fillOpacity="0.9" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <h3 className="font-display text-white text-lg leading-tight">
+                    Mastercard Foundation Associate
+                  </h3>
+                  <span className="px-2 py-0.5 rounded-full font-mono text-[9px] uppercase tracking-[0.16em] text-kratos-300 bg-kratos-500/15 border border-kratos-500/30">
+                    Active · 2026 – Present
+                  </span>
+                </div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/40 mb-3">
+                  Mastercard Foundation · via Shortlist
+                </p>
+                <p className="text-[14px] leading-[1.75] text-white/65">
+                  Selected as a Mastercard Foundation Associate through the{" "}
+                  <strong className="text-white/85 font-medium">Shortlist</strong>{" "}
+                  platform to gain hands-on industry experience with leading organisations across Africa and globally.
+                  The programme supports emerging professionals through work-integrated learning, remote collaboration,
+                  mentorship, and practical experience in real-world business and technology environments.
+                </p>
+                <p className="text-[14px] leading-[1.75] text-white/65 mt-3">
+                  Focused on developing professional, technical, and remote work skills while contributing to impactful
+                  projects and organisational goals, building the capacity to thrive in fast-paced, high-stakes
+                  technology environments from day one of placement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-10 flex items-center gap-4">
           {SOCIALS.map((s) => {
             const Icon = s.icon;

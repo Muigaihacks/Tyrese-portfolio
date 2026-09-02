@@ -3,10 +3,8 @@
 import {
   ArrowUpRight,
   Boxes,
+  BrainCircuit,
   Cloud,
-  Database,
-  ShieldCheck,
-  Sparkles,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
@@ -17,14 +15,8 @@ interface ServicePillar {
   blurb: string;
   bullets: string[];
   tags: string[];
-  coreExpertise?: boolean;
+  badge?: string;
 }
-
-const CORE_EXPERTISE = new Set([
-  "Software Engineering",
-  "Cloud Infrastructure",
-  "Automation Systems",
-]);
 
 const PILLARS: ServicePillar[] = [
   {
@@ -39,20 +31,23 @@ const PILLARS: ServicePillar[] = [
       "Payment integrations (M-Pesa Daraja, Stripe, Flutterwave)",
     ],
     tags: ["Next.js", "React Native", "Laravel", "Django"],
-    coreExpertise: true,
+    badge: "Core Expertise",
   },
   {
-    icon: Sparkles,
-    name: "AI & Machine Learning",
+    icon: BrainCircuit,
+    name: "AI, ML & Automation",
     blurb:
-      "From custom models trained on your data to LLM-powered workflows that compound expertise.",
+      "From fine-tuned language models to autonomous workflows that run your operations, not just assist them.",
     bullets: [
-      "Custom model development & fine-tuning",
-      "LLM integration & RAG systems",
+      "Custom model development & PEFT fine-tuning (QLoRA)",
+      "LLM integration & RAG system architecture",
+      "AI chatbots & customer-facing agents",
+      "n8n & custom workflow automation engines",
+      "Bulk SMS, email & notification pipelines",
       "Computer vision & document AI",
-      "Production deployment & monitoring",
     ],
-    tags: ["PyTorch", "TensorFlow", "OpenAI", "LangChain"],
+    tags: ["PyTorch", "LangChain", "OpenAI", "n8n", "HuggingFace", "QLoRA"],
+    badge: "Core Expertise",
   },
   {
     icon: Cloud,
@@ -66,47 +61,21 @@ const PILLARS: ServicePillar[] = [
       "Managed databases (Postgres, Mongo, Redis)",
     ],
     tags: ["AWS", "Kubernetes", "Terraform", "Postgres"],
-    coreExpertise: true,
+    badge: "Core Expertise",
   },
   {
     icon: Workflow,
-    name: "Automation Systems",
+    name: "Systems Integration",
     blurb:
-      "Replace repetitive work with workflows that run themselves, and learn as your business grows.",
+      "Connecting your stack into a single, coherent system: APIs, third-party services, and internal tools that all talk to each other.",
     bullets: [
-      "n8n & custom workflow engines",
-      "AI chatbots & customer-facing agents",
-      "Bulk SMS, email, and notification pipelines",
+      "REST & GraphQL API design and integration",
+      "Third-party SaaS & platform connectors",
+      "Webhook-driven event architectures",
       "End-to-end business process automation",
     ],
-    tags: ["n8n", "OpenAI", "Twilio", "Africa's Talking"],
-    coreExpertise: true,
-  },
-  {
-    icon: Database,
-    name: "Data Engineering",
-    blurb:
-      "Pipelines, warehouses, and analytics that turn scattered data into decisions you can defend.",
-    bullets: [
-      "ETL & streaming pipelines",
-      "Data annotation & labelling for ML",
-      "BI dashboards (Metabase, Looker, Superset)",
-      "Warehousing & lakehouse architecture",
-    ],
-    tags: ["Airflow", "dbt", "BigQuery", "Metabase"],
-  },
-  {
-    icon: ShieldCheck,
-    name: "Cybersecurity",
-    blurb:
-      "Threat modeling, hardening, and pentesting, production-grade software has to be secure.",
-    bullets: [
-      "Threat modeling & security audits",
-      "Penetration testing & red-team exercises",
-      "Firewall, WAF, and zero-trust setup",
-      "SIEM & incident response playbooks",
-    ],
-    tags: ["Burp Suite", "Wireshark", "Nessus", "OWASP"],
+    tags: ["REST", "GraphQL", "Webhooks", "Africa's Talking"],
+    badge: "Core Expertise",
   },
 ];
 
@@ -128,15 +97,15 @@ export default function ServicesSection() {
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="font-display text-white text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.02em]">
-            Six pillars. One studio.
+            Four pillars. One studio.
           </h2>
           <p className="text-white/55 text-base md:text-lg mt-5 leading-relaxed">
-            I&apos;m a full-stack engineer and consultant, from the database schema to the deployment pipeline to the AI workflow that runs on top of it. Every pillar is something I build and deliver personally.
+            I&apos;m a full-stack engineer and consultant — from the database schema to the deployment pipeline to the AI workflow that runs on top of it. Every pillar is something I build and deliver personally.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {PILLARS.map((p) => (
             <ServiceCard key={p.name} pillar={p} />
           ))}
@@ -148,15 +117,9 @@ export default function ServicesSection() {
 
 function ServiceCard({ pillar }: { pillar: ServicePillar }) {
   const Icon = pillar.icon;
-  const isCore = pillar.coreExpertise ?? CORE_EXPERTISE.has(pillar.name);
   return (
     <article
-      className={[
-        "group relative rounded-2xl border bg-surface-raised/40 p-6 transition-all duration-300 hover:border-kratos-500/40 hover:-translate-y-1 overflow-hidden",
-        isCore
-          ? "border-kratos-500/25 bg-surface-raised/55 border-l-[3px] border-l-kratos-500 hover:bg-surface-raised/80"
-          : "border-white/10 hover:bg-surface-raised/70",
-      ].join(" ")}
+      className="group relative rounded-2xl border bg-surface-raised/40 p-6 transition-all duration-300 hover:border-kratos-500/40 hover:-translate-y-1 overflow-hidden border-kratos-500/25 bg-surface-raised/55 border-l-[3px] border-l-kratos-500 hover:bg-surface-raised/80"
     >
       {/* Subtle hover gradient */}
       <div
@@ -169,9 +132,9 @@ function ServiceCard({ pillar }: { pillar: ServicePillar }) {
       />
 
       <div className="relative">
-        {isCore ? (
+        {pillar.badge ? (
           <span className="absolute top-0 right-0 px-2.5 py-1 rounded-full font-mono text-[9px] uppercase tracking-[0.16em] text-kratos-300 bg-kratos-500/15 border border-kratos-500/30">
-            Core Expertise
+            {pillar.badge}
           </span>
         ) : null}
 
